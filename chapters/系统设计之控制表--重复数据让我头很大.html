@@ -1,0 +1,596 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>系统设计之控制表--重复数据让我头很大 · KatherineLo的文章</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="KatherineLo">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../contact.html" />
+    
+    
+    <link rel="prev" href="数据库设计.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    文章列表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="Redis集群化方案.html">
+            
+                <a href="Redis集群化方案.html">
+            
+                    
+                    Redis集群化方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="搭建github个人博客----免费、无限流量.html">
+            
+                <a href="搭建github个人博客----免费、无限流量.html">
+            
+                    
+                    搭建github个人博客----免费、无限流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="一个最简版的项目.html">
+            
+                <a href="一个最简版的项目.html">
+            
+                    
+                    一个最简版的项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="日志系统设计.html">
+            
+                <a href="日志系统设计.html">
+            
+                    
+                    日志系统设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                <a href="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                    
+                    阿里云部署nodejs+mongoDB傻瓜教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="数据库设计.html">
+            
+                <a href="数据库设计.html">
+            
+                    
+                    数据库设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.7" data-path="系统设计之控制表--重复数据让我头很大.html">
+            
+                <a href="系统设计之控制表--重复数据让我头很大.html">
+            
+                    
+                    系统设计之控制表--重复数据让我头很大
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../contact.html">
+            
+                <a href="../contact.html">
+            
+                    
+                    联系方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >系统设计之控制表--重复数据让我头很大</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x4E4B;&#x63A7;&#x5236;&#x8868;----&#x91CD;&#x590D;&#x6570;&#x636E;&#x8BA9;&#x6211;&#x5934;&#x5F88;&#x5927;">&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x4E4B;&#x63A7;&#x5236;&#x8868;----&#x91CD;&#x590D;&#x6570;&#x636E;&#x8BA9;&#x6211;&#x5934;&#x5F88;&#x5927;</h1>
+<hr>
+<p>&#x5199;&#x518D;&#x524D;&#x9762;&#x7684;&#x8BDD;&#xFF1A;&#x505A;&#x7CFB;&#x7EDF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x5E38;&#x5E38;&#x4F1A;&#x628A;&#x4E00;&#x4E9B;&#x6279;&#x91CF;&#x7684;&#x64CD;&#x4F5C;&#x505A;&#x6210;&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;</p>
+<p>&#x3010;1&#x3011;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5728;&#x505A;&#x4E00;&#x4E9B;&#x6279;&#x91CF;&#x4E14;&#x8017;&#x65F6;&#x8F83;&#x957F;&#x7684;&#x4EFB;&#x52A1;&#x65F6;&#xFF08;&#x5982;&#x4E0A;&#x4F20;&#x5F55;&#x97F3;&#xFF0C;&#x4E0A;&#x4F20;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x5904;&#x7406;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;&#xFF09;&#xFF0C;&#x5E38;&#x5E38;&#x6321;&#x4E0D;&#x4F4F;&#x7528;&#x6237;&#x5728;&#x70B9;&#x51FB;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x5FD8;&#x8BB0;&#x81EA;&#x5DF1;&#x70B9;&#x51FB;&#x8FC7;&#x6216;&#x8005;&#x4E0D;&#x770B;&#x8FDB;&#x5EA6;&#x6761;&#xFF0C;&#x6216;&#x8005;&#x5237;&#x65B0;&#x9875;&#x9762;&#x7B49;&#x65B9;&#x5F0F;&#x5F3A;&#x884C;&#x518D;&#x6B21;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x3002;&#x5BFC;&#x81F4;&#x5927;&#x91CF;&#x91CD;&#x590D;&#x7684;&#x6570;&#x636E;&#x3002;&#x5373;&#x4FBF;&#x5728;&#x5355;&#x6761;&#x6570;&#x636E;&#x4E0A;&#x4F5C;&#x72B6;&#x6001;&#x6807;&#x8BB0;&#x4E5F;&#x6321;&#x4E0D;&#x4F4F;&#x6709;&#x4E9B;&#x6279;&#x91CF;&#x4EFB;&#x52A1;&#x5728;&#x4F60;&#x8FFD;&#x6211;&#x8D76;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x90E8;&#x5206;&#x6570;&#x636E;&#x53D1;&#x751F;&#x6BEB;&#x79D2;&#x7EA7;&#x522B;&#x7684;&#x91CD;&#x590D;&#x3002;
+&#x3010;2&#x3011;&#x53E6;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#xFF0C;&#x67D0;&#x6B21;&#x53EF;&#x80FD;&#x662F;&#x4FEE;&#x6539;&#x5B57;&#x6BB5;&#x7B49;&#x60C5;&#x51B5;&#xFF0C;&#x9700;&#x8981;&#x540E;&#x53F0;&#x8DD1;&#x811A;&#x672C;&#x6279;&#x91CF;&#x5730;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x6267;&#x884C;&#x5230;&#x4E00;&#x534A;&#x7684;&#x65F6;&#x5019;&#x7531;&#x4E8E;&#x5404;&#x79CD;&#x539F;&#x56E0;&#xFF08;&#x4EE3;&#x7801;&#x4E0D;&#x5408;&#x7406;&#x6216;&#x4EE3;&#x7801;&#x4E0D;&#x5408;&#x7406;&#x5BFC;&#x81F4;&#x7684;&#x5185;&#x5B58;&#x7206;&#x6389;&#xFF09;&#x5931;&#x8D25;&#x4E86;&#x3002;&#x7136;&#x800C;&#x6211;&#x7684;&#x811A;&#x672C;&#x6709;&#x591A;&#x4E2A;&#x6B65;&#x9AA4;&#xFF0C;&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x54EA;&#x4E2A;&#x6B65;&#x9AA4;&#x88AB;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x54EA;&#x4E2A;&#x6B65;&#x9AA4;&#x4E2D;&#x95F4;&#x5361;&#x4E86;&#xFF0C;&#x975E;&#x5E38;&#x60F3;&#x8981;&#x77E5;&#x9053;&#x963F;&#x2026;&#x2026;</p>
+<h2 id="&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x63A7;&#x5236;&#x8868;&#x5C31;&#x8981;&#x95EA;&#x4EAE;&#x767B;&#x573A;&#x4E86;&#x3002;">&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x63A7;&#x5236;&#x8868;&#x5C31;&#x8981;&#x95EA;&#x4EAE;&#x767B;&#x573A;&#x4E86;&#x3002;</h2>
+<p>&#x9996;&#x5148;&#xFF0C;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x4F5C;&#x6807;&#x8BB0;&#xFF0C;&#x518D;&#x6B21;&#x9700;&#x8981;&#x6267;&#x884C;&#x8BE5;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x5148;&#x67E5;&#x8BE2;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#xFF0C;&#x672A;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x524D;&#x4E0D;&#x5141;&#x8BB8;&#x518D;&#x6B21;&#x6267;&#x884C;&#x3002;
+&#x5176;&#x6B21;&#xFF0C;&#x5F53;&#x67D0;&#x4E9B;&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5230;&#x4E00;&#x534A;&#x5931;&#x8D25;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x67E5;&#x770B;&#x63A7;&#x5236;&#x8868;&#x5C31;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x5361;&#x5728;&#x54EA;&#x4E2A;&#x6B65;&#x9AA4;&#xFF0C;&#x518D;&#x6B21;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x81EA;&#x52A8;&#x8DF3;&#x8FC7;&#x5DF2;&#x6267;&#x884C;&#x8FC7;&#x7684;&#x6B65;&#x9AA4;&#x3002;</p>
+<h3 id="&#x6211;&#x8FD9;&#x8FB9;&#x4EE5;node&#x4E3A;&#x4F8B;&#xFF0C;&#x4E3E;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x8868;&#x3002;">&#x6211;&#x8FD9;&#x8FB9;&#x4EE5;node&#x4E3A;&#x4F8B;&#xFF0C;&#x4E3E;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x8868;&#x3002;</h3>
+<pre><code>/**
+ * &#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#xFF1A; &#x63A7;&#x5236;&#x8868;
+ * 
+ * &#x63A7;&#x5236;&#x8868;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1A;
+ * {
+    process_name: String,  &#x540D;&#x79F0;
+    stat_date: String,  &#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x6570;&#x636E;&#x7684;&#x65E5;&#x671F;
+    partion_id: String,  &#x5206;&#x533A;&#x540D;&#x79F0;
+    status: Integer,  &#x72B6;&#x6001; 0 &#x6210;&#x529F;&#x8FD0;&#x884C; 8 &#x6B63;&#x5728;&#x8FD0;&#x884C; 9 &#x51C6;&#x5907;&#x8FD0;&#x884C;
+    first_time: Integer,  &#x7B2C;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#x6570; &#x53EF;&#x901A;&#x8FC7; new Date(&#x6BEB;&#x79D2;&#x6570;) &#x5C06;&#x5176;&#x8F6C;&#x6362;&#x4E3A;&#x53EF;&#x8BFB;&#x7684;&#x65F6;&#x95F4;&#xFF09;
+    start_time: Integer,  &#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#x6570; &#x53EF;&#x901A;&#x8FC7; new Date(&#x6BEB;&#x79D2;&#x6570;) &#x5C06;&#x5176;&#x8F6C;&#x6362;&#x4E3A;&#x53EF;&#x8BFB;&#x7684;&#x65F6;&#x95F4;&#xFF09;
+    expire_time: Integer, &#x8FC7;&#x671F;&#x65F6;&#x95F4; &#x4F8B;&#xFF1A;&apos;2017-11-12 00:00&apos;
+    run_seconds: Integer,  &#x8FD0;&#x884C;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#xFF09;
+    error_msg: String,  &#x9519;&#x8BEF;&#x4FE1;&#x606F;
+    end_time: Integer,  &#x7ED3;&#x675F;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#x6570; &#x53EF;&#x901A;&#x8FC7; new Date(&#x6BEB;&#x79D2;&#x6570;) &#x5C06;&#x5176;&#x8F6C;&#x6362;&#x4E3A;&#x53EF;&#x8BFB;&#x7684;&#x65F6;&#x95F4;&#xFF09;
+    step_id Integer,  &#x8FD0;&#x884C;&#x6B65;&#x9AA4;
+    query: Object  &#x5176;&#x4ED6;&#x643A;&#x5E26;&#x6570;&#x636E;
+ * }
+ * 
+ * 
+ * &#x9519;&#x8BEF;&#x7801;&#xFF1A;
+ * 0: &#x6210;&#x529F;
+ * 2: &#x6B65;&#x9AA4;&#x5DF2;&#x5B8C;&#x6210;&#xFF0C;&#x8BF7;&#x8DF3;&#x8FC7;
+ * 8: &#x8FD0;&#x884C;&#x4E2D;
+ * 451: &#x5176;&#x4ED6;&#x975E;&#x5F02;&#x5E38;&#x9519;&#x8BEF;
+ */
+</code></pre><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> common = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./common&apos;</span>);  <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x662F;&#x5C01;&#x88C5;&#x597D;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5927;&#x5BB6;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x5E94;&#x7528;&#x6210;&#x719F;&#x7684;&#x5305;&#xFF0C;&#x4F8B;&#x5982;mongoose&#x6216;mongoskin</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ControlTable</span>(<span class="hljs-params">connectionName</span>) </span>{
+    <span class="hljs-keyword">this</span>.M = common.helper.modelLoader(connectionName);
+}
+</code></pre>
+<pre><code>/**
+ * &#x529F;&#x80FD;&#xFF1A;&#x521D;&#x59CB;&#x5316;&#x63A7;&#x5236;&#x8868;
+ * &#x63CF;&#x8FF0;&#xFF1A;&#x67E5;&#x8BE2;&#x63A7;&#x5236;&#x8868;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;status: 8&#x5219;&#x8868;&#x793A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x4E2D;&#xFF0C;&#x5176;&#x4F59;&#x5219;&#x521D;&#x59CB;&#x5316;&#x66F4;&#x65B0;&#x6570;&#x636E;(&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x65B0;&#x5EFA;&#x4E00;&#x6761;&#x6570;&#x636E;)
+ * &#x5165;&#x53C2;&#xFF1A;{process_name[&#x5FC5;&#x586B;]: String, partion_id: String, expire_time: String &#x4F8B;&#xFF1A; &apos;2017-11-21 13:20&apos;}
+ * &#x51FA;&#x53C2;result&#xFF1A;{code: 0, msg: &quot;xxx&quot;, data: {status: 9}}
+ * &#x51FA;&#x53C2;err&#xFF1A;{msg: &quot;&#x63A7;&#x5236;&#x8868;&#x62A5;&#x9519;&quot;, func: &quot;start&quot;, query: data}
+ * &#x6570;&#x636E;&#x64CD;&#x4F5C;&#xFF1A; &#x5F53;&#x524D;&#x8868;&#x5B57;&#x6BB5;&#xFF1A;process_name, stat_date, partion_id, status, first_time, start_time
+ */
+</code></pre><pre><code class="lang-javascript">ControlTable.prototype.start = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data, callback</span>) </span>{
+    <span class="hljs-keyword">var</span> _this = <span class="hljs-keyword">this</span>,
+        nowTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()
+        dateReg = <span class="hljs-regexp">/^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])\s+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/</span>;
+
+    <span class="hljs-keyword">if</span>(!data || !data.process_name) {
+        <span class="hljs-keyword">return</span> callabck({msg: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;&quot;</span>, query: data});
+    }
+
+    <span class="hljs-keyword">if</span>(data &amp;&amp; data.expire_time &amp;&amp; !dateReg.test(data.expire_time)) {
+        <span class="hljs-keyword">return</span> callback({msg: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;&#xFF08;&#x65E5;&#x671F;&#x683C;&#x5F0F;&#x4E0D;&#x6B63;&#x786E;&#xFF09;&quot;</span>, query: data})
+    }
+
+    common.co(<span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> findData = <span class="hljs-keyword">yield</span> _this.M.QfindOne({process_name: data.process_name}, {}, <span class="hljs-string">&apos;mscrm&apos;</span>);
+        <span class="hljs-keyword">if</span>(findData &amp;&amp; findData.status &amp;&amp; findData.status == <span class="hljs-number">8</span> &amp;&amp; findData.expire_time &amp;&amp; findData.expire_time &gt; nowTime.getTime()) {
+            <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">8</span>, msg: <span class="hljs-string">&quot;&#x7A0B;&#x5E8F;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x4E2D;&#x2026;&#x2026;&quot;</span>, data: { status: findData.status }});
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">yield</span> _this.M.Qupdate({process_name: data.process_name}, {
+                process_name: data.process_name,
+                stat_date: common.moment().format(<span class="hljs-string">&quot;YYYY-MM-DD&quot;</span>),
+                partion_id: data.partion_id || <span class="hljs-string">&apos;&apos;</span>,
+                status: <span class="hljs-number">9</span>,
+                first_time: nowTime.getTime(),
+                start_time: nowTime.getTime(),
+                expire_time: data.expire_time? <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(data.expire_time).getTime(): <span class="hljs-number">16725225600000</span>  <span class="hljs-comment">//2500-01-01</span>
+            }, <span class="hljs-string">&apos;mscrm&apos;</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>);
+
+            <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">0</span>, msg: <span class="hljs-string">&quot;&#x5F00;&#x59CB;&#x8FD0;&#x884C;&quot;</span>, data: { status: <span class="hljs-number">9</span> }});
+        }
+    }).catch(e =&gt; {
+        <span class="hljs-keyword">return</span> callback({msg: <span class="hljs-string">&quot;&#x63A7;&#x5236;&#x8868;&#x62A5;&#x9519;&quot;</span>, func: <span class="hljs-string">&quot;start&quot;</span>, query: data});
+    })
+}
+</code></pre>
+<pre><code>/**
+ * &#x529F;&#x80FD;&#xFF1A; &#x63A7;&#x5236;&#x8868;&#x6B65;&#x9AA4;&#x8DDF;&#x8FDB;
+ * &#x63CF;&#x8FF0;&#xFF1A; &#x66F4;&#x65B0;&#x6570;&#x636E;&#x91CC;&#x7684;&#x6B65;&#x9AA4;&#x503C;step_id&#xFF0C;&#x5982;&#x679C;&#x8868;&#x91CC;&#x7684;step_id&#x7684;&#x503C;&#x6BD4;&#x4F20;&#x5165;&#x7684;&#x5927;&#x6216;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;2&#xFF0C;&#x5EFA;&#x8BAE;&#x8DF3;&#x8FC7;&#x8BE5;&#x6B65;&#x9AA4;
+ * &#x5165;&#x53C2;&#xFF1A; {process_name[&#x5FC5;&#x586B;]: String, step_id[&#x5FC5;&#x586B;]: Number, query: String}
+ * &#x51FA;&#x53C2;result&#xFF1A;{code: 0, msg: &quot;xxx&quot;}
+ * &#x51FA;&#x53C2;err&#xFF1A;{msg: &quot;xxx&quot;, func: &apos;xxx&apos;, query: {}}
+ * &#x6570;&#x636E;&#x64CD;&#x4F5C;&#xFF1A; &#x5F53;&#x524D;&#x8868;&#x5B57;&#x6BB5;&#xFF1A;step_id, query
+ */
+</code></pre><pre><code class="lang-javascript">ControlTable.prototype.step = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data, callback</span>) </span>{
+    <span class="hljs-keyword">var</span> _this = <span class="hljs-keyword">this</span>;
+
+    <span class="hljs-keyword">if</span>(!data || !data.process_name || !data.step_id) {
+        <span class="hljs-keyword">return</span> callabck({msg: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;&quot;</span>, query: data});
+    }
+
+    <span class="hljs-keyword">if</span>(!<span class="hljs-regexp">/^[1-9]\d*$/</span>.test(data.step_id)) {
+        <span class="hljs-keyword">return</span> callback({msg: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;(step_id&#x4E0D;&#x662F;&#x6B63;&#x6574;&#x6570;)&quot;</span>, query: data})
+    }
+
+    common.co(<span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> findData = <span class="hljs-keyword">yield</span> _this.M.QfindOne({process_name: data.process_name}, {}, <span class="hljs-string">&apos;mscrm&apos;</span>);
+
+        <span class="hljs-keyword">if</span>(findData &amp;&amp; findData.status == <span class="hljs-number">9</span> || findData.status == <span class="hljs-number">8</span>) {
+            <span class="hljs-keyword">if</span>(findData.step_id &amp;&amp; findData.step_id &gt;= data.step_id) {
+                <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">2</span>, msg: <span class="hljs-string">&quot;&#x8BE5;&#x6B65;&#x9AA4;&#x5DF2;&#x5B8C;&#x6210;&#xFF0C;&#x8BF7;&#x8DF3;&#x8FC7;&quot;</span>})
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">yield</span> _this.M.Qupdate({_id: findData._id}, {$set: {
+                    status: <span class="hljs-number">8</span>,
+                    step_id: data.step_id,
+                    query: data.query || <span class="hljs-string">&apos;&apos;</span>
+                }}, <span class="hljs-string">&apos;mscrm&apos;</span>);
+
+                <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">0</span>, msg: <span class="hljs-string">`&#x66F4;&#x65B0;&#x6B65;&#x9AA4;<span class="hljs-subst">${data.step_id}</span>`</span>});                
+            }
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">451</span>, msg: <span class="hljs-string">&apos;&#x63A7;&#x5236;&#x8868;&#x672A;&#x521D;&#x59CB;&#x5316;&apos;</span>});
+        }
+    }).catch(e =&gt; {
+        <span class="hljs-keyword">return</span> callback({msg: <span class="hljs-string">&quot;&#x63A7;&#x5236;&#x8868;&#x62A5;&#x9519;&quot;</span>, func: <span class="hljs-string">&apos;step&apos;</span>, query: data});
+    })
+}
+</code></pre>
+<pre><code>/**
+ * &#x529F;&#x80FD;&#xFF1A;&#x63A7;&#x5236;&#x8868;&#x6210;&#x529F;&#x7ED3;&#x675F;
+ * &#x63CF;&#x8FF0;&#xFF1A;&#x67E5;&#x627E;&#x63A7;&#x5236;&#x8868;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5219;&#x66F4;&#x65B0;&#x7ED3;&#x675F;&#xFF0C;&#x6CA1;&#x6709;&#x5219;&#x8FD4;&#x56DE;&#x672A;&#x521D;&#x59CB;&#x5316;
+ * &#x5165;&#x53C2;&#xFF1A;{process_name[&#x5FC5;&#x586B;]: String, query: Object}
+ * &#x51FA;&#x53C2;result&#xFF1A;{code: 0, msg: &quot;xxx&quot;}
+ * &#x51FA;&#x53C2;err&#xFF1A;{msg: &quot;xxx&quot;, func: &apos;xxx&apos;, query: {}}
+ * &#x6570;&#x636E;&#x64CD;&#x4F5C;&#xFF1A; &#x5F53;&#x524D;&#x8868;&#x5B57;&#x6BB5;&#xFF1A;status, run_seconds, end_time, query
+ */
+</code></pre><pre><code class="lang-javascript">ControlTable.prototype.finish = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data, callback</span>) </span>{
+    <span class="hljs-keyword">var</span> _this = <span class="hljs-keyword">this</span>,
+        nowTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+
+    <span class="hljs-keyword">if</span>(!data || !data.process_name) {
+        <span class="hljs-keyword">return</span> callabck({msg: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;&quot;</span>, query: data});
+    }
+
+    common.co(<span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> findData = <span class="hljs-keyword">yield</span> _this.M.QfindOne({process_name: data.process_name}, {}, <span class="hljs-string">&apos;mscrm&apos;</span>);
+
+        <span class="hljs-keyword">if</span>(findData &amp;&amp; findData.status == <span class="hljs-number">8</span>) {
+            <span class="hljs-keyword">yield</span> _this.M.Qupdate({_id: findData._id}, {$set: {
+                status: <span class="hljs-number">0</span>,
+                run_seconds: nowTime.getTime() - findData.first_time,
+                end_time: nowTime.getTime(),
+                query: data.query || <span class="hljs-string">&apos;&apos;</span>
+            }}, <span class="hljs-string">&apos;mscrm&apos;</span>);
+
+            <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">0</span>, msg: <span class="hljs-string">&apos;&#x6210;&#x529F;&#x7ED3;&#x675F;&apos;</span>});
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">451</span>, msg: <span class="hljs-string">&quot;&#x63A7;&#x5236;&#x8868;&#x672A;&#x5728;&#x8FD0;&#x884C;&#x4E2D;&#xFF0C;&#x65E0;&#x6CD5;&#x7ED3;&#x675F;&quot;</span>});
+        }
+
+    }).catch(e =&gt; {
+        <span class="hljs-keyword">return</span> callback({msg: <span class="hljs-string">&quot;&#x63A7;&#x5236;&#x8868;&#x62A5;&#x9519;&quot;</span>, func: <span class="hljs-string">&apos;finish&apos;</span>, query: data});
+    })
+}
+</code></pre>
+<pre><code>/**
+ * &#x529F;&#x80FD;&#xFF1A;&#x4E1A;&#x52A1;&#x7A0B;&#x5E8F;&#x62A5;&#x9519;&#x8BB0;&#x5F55;&#x5165;&#x63A7;&#x5236;&#x8868;
+ * &#x63CF;&#x8FF0;&#xFF1A;&#x66F4;&#x65B0;&#x5F53;&#x524D;&#x8868;&#x72B6;&#x6001;&#x53CA;&#x9519;&#x8BEF;&#x4FE1;&#x606F; error_msg &#x5982;&#x679C;&#x66F4;&#x65B0;&#x4E3A;0&#x6761;&#xFF0C;&#x5219;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;&#xFF0C;1&#x6761;&#x5219;&#x6B63;&#x5E38;&#x8BB0;&#x5F55;&#x9519;&#x8BEF;
+ * &#x5165;&#x53C2;&#xFF1A;{process_name[&#x5FC5;&#x586B;]: String, error_msg: String, query: Object}
+ * &#x51FA;&#x53C2;result&#xFF1A;{code: 0, msg: &quot;xxx&quot;}
+ * &#x51FA;&#x53C2;err&#xFF1A;{msg: &quot;xxx&quot;, func: &apos;xxx&apos;, query: {}}
+ * &#x6570;&#x636E;&#x64CD;&#x4F5C;&#xFF1A;&#x5F53;&#x524D;&#x8868;&#x5B57;&#x6BB5;&#xFF1A;status, error_msg, end_time, query
+ */
+</code></pre><pre><code class="lang-javascript">ControlTable.prototype.error = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-keyword">var</span> _this = <span class="hljs-keyword">this</span>,
+        nowTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+
+    <span class="hljs-keyword">if</span>(!data || !data.process_name) {
+        <span class="hljs-keyword">return</span> callabck({msg: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;&quot;</span>, query: data});
+    }
+
+    common.co(<span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> findData = <span class="hljs-keyword">yield</span> _this.M.QfindOne({process_name: data.process_name}, {}, <span class="hljs-string">&apos;mscrm&apos;</span>);
+
+        <span class="hljs-keyword">if</span>(findData &amp;&amp; findData.status == <span class="hljs-number">8</span>) {
+            <span class="hljs-keyword">yield</span> _this.M.Qupdate({_id: findData._id}, {$set: {
+                status: <span class="hljs-number">-1</span>,
+                error_msg: data.error_msg || <span class="hljs-string">&apos;&apos;</span>,
+                end_time: nowTime.getTime(),
+                query: data.query || <span class="hljs-string">&apos;&apos;</span>
+            }}, <span class="hljs-string">&apos;mscrm&apos;</span>);
+
+            <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">0</span>, msg: <span class="hljs-string">&apos;&#x8BB0;&#x5F55;&#x9519;&#x8BEF;&apos;</span>});
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, {code: <span class="hljs-number">451</span>, msg: <span class="hljs-string">&apos;&#x63A7;&#x5236;&#x8868;&#x672A;&#x5728;&#x8FD0;&#x884C;&#x4E2D;&#xFF0C;&#x65E0;&#x6CD5;&#x8BB0;&#x5F55;&#x9519;&#x8BEF;&apos;</span>});
+        }
+    })
+}
+</code></pre>
+<p>// promise&#x5F62;&#x5F0F;&#x7684;start&#x51FD;&#x6570;</p>
+<pre><code class="lang-javascript">ControlTable.prototype.Qstart = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+        _this.start(data, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+            <span class="hljs-keyword">if</span>(err) {
+                reject(err);
+            } <span class="hljs-keyword">else</span> {
+                resolve(result);
+            }
+        });
+    });
+}
+</code></pre>
+<p>// promise&#x5F62;&#x5F0F;&#x7684;step&#x51FD;&#x6570;</p>
+<pre><code class="lang-javascript">ControlTable.prototype.Qstep = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+        _this.step(data, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+            <span class="hljs-keyword">if</span>(err) {
+                reject(err);
+            } <span class="hljs-keyword">else</span> {
+                resolve(result);
+            }
+        });
+    });
+}
+</code></pre>
+<p>// promise&#x5F62;&#x5F0F;&#x7684;finish&#x51FD;&#x6570;</p>
+<pre><code class="lang-javascript">ControlTable.prototype.Qfinish = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+        _this.finish(data, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+            <span class="hljs-keyword">if</span>(err) {
+                reject(err);
+            } <span class="hljs-keyword">else</span> {
+                resolve(result);
+            }
+        });
+    });
+}
+</code></pre>
+<p>// promise&#x5F62;&#x5F0F;&#x7684;error&#x51FD;&#x6570;</p>
+<pre><code class="lang-javascript">ControlTable.prototype.Qerror = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+        _this.error(data, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+            <span class="hljs-keyword">if</span>(err) {
+                reject(err);
+            } <span class="hljs-keyword">else</span> {
+                resolve(result);
+            }
+        });
+    });
+}
+
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">connectionName</span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ControlTable(connectionName);
+};
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="数据库设计.html" class="navigation navigation-prev " aria-label="Previous page: 数据库设计">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../contact.html" class="navigation navigation-next " aria-label="Next page: 联系方式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"系统设计之控制表--重复数据让我头很大","level":"1.1.7","depth":2,"next":{"title":"联系方式","level":"1.2","depth":1,"path":"contact.md","ref":"contact.md","articles":[]},"previous":{"title":"数据库设计","level":"1.1.6","depth":2,"path":"chapters/数据库设计.md","ref":"chapters/数据库设计.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"KatherineLo","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"KatherineLo的文章","gitbook":"*"},"file":{"path":"chapters/系统设计之控制表--重复数据让我头很大.md","mtime":"2020-01-25T15:09:25.385Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-25T15:12:15.251Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
