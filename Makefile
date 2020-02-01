@@ -8,3 +8,6 @@ publish:
 
 reset_git_folder:
 	mv _book/.git git-source/.git
+
+start:
+	gitbook serve

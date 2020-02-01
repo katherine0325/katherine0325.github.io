@@ -1,0 +1,432 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>使用Spark进行流量日志分析 · KatherineLo的文章</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="KatherineLo">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="工作风格.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    文章列表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.1.1" data-path="使用Spark进行流量日志分析.html">
+            
+                <a href="使用Spark进行流量日志分析.html">
+            
+                    
+                    使用Spark进行流量日志分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="工作风格.html">
+            
+                <a href="工作风格.html">
+            
+                    
+                    工作风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html">
+            
+                <a href="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html">
+            
+                    
+                    大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="Redis集群化方案.html">
+            
+                <a href="Redis集群化方案.html">
+            
+                    
+                    Redis集群化方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="搭建github个人博客----免费、无限流量.html">
+            
+                <a href="搭建github个人博客----免费、无限流量.html">
+            
+                    
+                    搭建github个人博客----免费、无限流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="一个最简版的项目.html">
+            
+                <a href="一个最简版的项目.html">
+            
+                    
+                    一个最简版的项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="日志系统设计.html">
+            
+                <a href="日志系统设计.html">
+            
+                    
+                    日志系统设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                <a href="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                    
+                    阿里云部署nodejs+mongoDB傻瓜教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="数据库设计.html">
+            
+                <a href="数据库设计.html">
+            
+                    
+                    数据库设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="系统设计之控制表--重复数据让我头很大.html">
+            
+                <a href="系统设计之控制表--重复数据让我头很大.html">
+            
+                    
+                    系统设计之控制表--重复数据让我头很大
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../contact.html">
+            
+                <a href="../contact.html">
+            
+                    
+                    联系方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >使用Spark进行流量日志分析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F7F;&#x7528;spark&#x8FDB;&#x884C;&#x6D41;&#x91CF;&#x65E5;&#x5FD7;&#x5206;&#x6790;">&#x4F7F;&#x7528;Spark&#x8FDB;&#x884C;&#x6D41;&#x91CF;&#x65E5;&#x5FD7;&#x5206;&#x6790;</h1>
+<hr>
+<h3 id="&#x90E8;&#x5206;&#x5206;&#x6790;&#x65E5;&#x5FD7;&#x6307;&#x6807;&#x5982;&#x4E0B;&#xFF1A;">&#x90E8;&#x5206;&#x5206;&#x6790;&#x65E5;&#x5FD7;&#x6307;&#x6807;&#x5982;&#x4E0B;&#xFF1A;</h3>
+<p>PV: &#x7F51;&#x7AD9;&#x9875;&#x9762;&#x8BBF;&#x95EE;&#x6570;&#x3002;
+UV: &#x9875;&#x9762;IP&#x7684;&#x8BBF;&#x95EE;&#x91CF;&#x7EDF;&#x8BA1;&#xFF0C;&#x5373;&#x72EC;&#x7ACB;IP&#x3002;
+PVPU:&#x5E73;&#x5747;&#x6BCF;&#x4F4D;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x9875;&#x9762;&#x6570;&#x3002;
+Time: &#x7528;&#x6237;&#x6BCF;&#x5C0F;&#x65F6;PV&#x7684;&#x7EDF;&#x8BA1;&#x3002;
+Source: &#x7528;&#x6237;&#x6765;&#x6E90;&#x57DF;&#x540D;&#x7684;&#x7EDF;&#x8BA1;&#x3002;
+Browser: &#x7528;&#x6237;&#x7684;&#x8BBF;&#x95EE;&#x8BBE;&#x5907;&#x7EDF;&#x8BA1;&#x3002;</p>
+<h3 id="&#x622A;&#x53D6;&#x6709;&#x610F;&#x4E49;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x672C;&#x6B21;&#x6392;&#x5E8F;&#x7684;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x5982;&#x4E0B;">&#x622A;&#x53D6;&#x6709;&#x610F;&#x4E49;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x672C;&#x6B21;&#x6392;&#x5E8F;&#x7684;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x5982;&#x4E0B;</h3>
+<p>&#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x5217;&#x4E3A;&#x65F6;&#x95F4;&#x6233;&#xFF0C;
+&#x5176;&#x4E2D;&#x7B2C;&#x4E8C;&#x5217;&#x4E3A;&#x624B;&#x673A;&#x53F7;&#xFF0C;
+&#x5176;&#x4E2D;&#x7B2C;&#x4E09;&#x5217;&#x4E3A;&#x4E0A;&#x884C;&#x6D41;&#x91CF;&#xFF0C;
+&#x5176;&#x4E2D;&#x7B2C;&#x56DB;&#x5217;&#x4E3A;&#x4E0B;&#x884C;&#x6D41;&#x91CF;&#x3002;</p>
+<p>&#x3010;&#x56FE;&#x7247;&#x3011;</p>
+<h3 id="&#x9700;&#x6C42;&#x63CF;&#x8FF0;">&#x9700;&#x6C42;&#x63CF;&#x8FF0;</h3>
+<p>&#x4EE5;&#x624B;&#x673A;&#x53F7;&#x4E3A;&#x57FA;&#x51C6;&#xFF0C;&#x5148;&#x6309;&#x4E0A;&#x884C;&#x6D41;&#x91CF;&#x6392;&#x5E8F;&#xFF0C;&#x5982;&#x679C;&#x4E0A;&#x884C;&#x6D41;&#x91CF;&#x76F8;&#x540C;&#xFF0C;&#x518D;&#x6309;&#x4E0B;&#x884C;&#x6D41;&#x91CF;&#x6392;&#x5E8F;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x518D;&#x6309;&#x65F6;&#x95F4;&#x6233;&#x6392;&#x5E8F;&#xFF0C;&#x5E76;&#x5C06;&#x6392;&#x5E8F;&#x7684;&#x7ED3;&#x679C;&#x751F;&#x6210;&#x6587;&#x4EF6;</p>
+<h3 id="&#x6838;&#x5FC3;&#x7F16;&#x7A0B;&#x601D;&#x60F3;&#x63CF;&#x8FF0;">&#x6838;&#x5FC3;&#x7F16;&#x7A0B;&#x601D;&#x60F3;&#x63CF;&#x8FF0;:</h3>
+<p>&#x5BF9;&#x4E8E;&#x5143;&#x7956;&#x7684;N&#x6B21;&#x6392;&#x5E8F;&#xFF0C;&#x4F7F;&#x7528;sortBy()&#x65B9;&#x6CD5;</p>
+<h3 id="&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;">&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;:</h3>
+<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;
+&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x5C06;&#x6587;&#x4EF6;&#x901A;&#x8FC7;split(&quot; &quot;)&#x7A7A;&#x4E2A;&#x5207;&#x5272;&#x6210;&#x6570;&#x7EC4;
+&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5C06;&#x6570;&#x7EC4;&#x62FC;&#x63A5;&#x6210;&#x6BCF;&#x884C;&#x5143;&#x7956;
+&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x5BF9;&#x5143;&#x7956;&#x4E2D;&#x6307;&#x5B9A;&#x5217;&#x8FDB;&#x884C;&#x6392;&#x5E8F;
+&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x5C06;&#x5143;&#x7956;&#x6062;&#x590D;&#x6210;string
+&#x7B2C;&#x516D;&#x6B65;&#xFF1A;&#x8F93;&#x51FA;&#x6210;&#x4E3A;&#x6587;&#x4EF6;</p>
+<h3 id="&#x4EE3;&#x7801;&#xFF1A;">&#x4EE3;&#x7801;&#xFF1A;</h3>
+<pre><code class="lang-scala"><span class="hljs-keyword">import</span> org.apache.spark.<span class="hljs-type">SparkConf</span>
+<span class="hljs-keyword">import</span> org.apache.spark.<span class="hljs-type">SparkContext</span>
+<span class="hljs-keyword">import</span> org.apache.spark.<span class="hljs-type">SparkContext</span>._
+
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">LogSort</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]) {
+        <span class="hljs-keyword">val</span> conf = <span class="hljs-keyword">new</span> <span class="hljs-type">SparkConf</span>().setAppName(<span class="hljs-string">&quot;Log Sort&quot;</span>)
+        <span class="hljs-keyword">val</span> sc = <span class="hljs-keyword">new</span> <span class="hljs-type">SparkContext</span>(conf)
+
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x6587;&#x4EF6;</span>
+        <span class="hljs-keyword">val</span> lines = sc.textFile(<span class="hljs-string">&quot;/home/katherine/project/test/sparkapp/input/access_20170504.log&quot;</span>)
+
+        <span class="hljs-comment">// &#x5148;&#x6309;&#x4E0A;&#x884C;&#x6D41;&#x91CF;&#xFF0C;&#x4E0B;&#x884C;&#x6D41;&#x91CF;&#x3002;&#x518D;&#x6309;&#x65F6;&#x95F4;&#x6233;&#x6392;&#x5E8F;</span>
+        <span class="hljs-keyword">val</span> results = lines.map(_.split(<span class="hljs-string">&quot; &quot;</span>))
+                        .map(i =&gt; (i(<span class="hljs-number">0</span>).toLong, i(<span class="hljs-number">1</span>), i(<span class="hljs-number">2</span>).toInt, i(<span class="hljs-number">3</span>).toInt))
+                        .sortBy(j =&gt; (j._3, j._4, j._1))
+                        .map(i =&gt; i._1 + <span class="hljs-string">&quot; &quot;</span> + i._2 + <span class="hljs-string">&quot; &quot;</span> + i._3 + <span class="hljs-string">&quot; &quot;</span> + i._4)
+
+        <span class="hljs-comment">// &#x6392;&#x5E8F;&#x540E;&#x6570;&#x636E;&#x5B58;&#x6587;&#x4EF6;</span>
+        results.saveAsTextFile(<span class="hljs-string">&quot;/home/katherine/project/test/sparkapp/output/LogSort&quot;</span>)
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 文章列表">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="工作风格.html" class="navigation navigation-next " aria-label="Next page: 工作风格">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"使用Spark进行流量日志分析","level":"1.1.1","depth":2,"next":{"title":"工作风格","level":"1.1.2","depth":2,"path":"chapters/工作风格.md","ref":"chapters/工作风格.md","articles":[]},"previous":{"title":"文章列表","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"使用Spark进行流量日志分析","level":"1.1.1","depth":2,"path":"chapters/使用Spark进行流量日志分析.md","ref":"chapters/使用Spark进行流量日志分析.md","articles":[]},{"title":"工作风格","level":"1.1.2","depth":2,"path":"chapters/工作风格.md","ref":"chapters/工作风格.md","articles":[]},{"title":"大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理","level":"1.1.3","depth":2,"path":"chapters/大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.md","ref":"chapters/大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.md","articles":[]},{"title":"Redis集群化方案","level":"1.1.4","depth":2,"path":"chapters/Redis集群化方案.md","ref":"chapters/Redis集群化方案.md","articles":[]},{"title":"搭建github个人博客----免费、无限流量","level":"1.1.5","depth":2,"path":"chapters/搭建github个人博客----免费、无限流量.md","ref":"chapters/搭建github个人博客----免费、无限流量.md","articles":[]},{"title":"一个最简版的项目","level":"1.1.6","depth":2,"path":"chapters/一个最简版的项目.md","ref":"chapters/一个最简版的项目.md","articles":[]},{"title":"日志系统设计","level":"1.1.7","depth":2,"path":"chapters/日志系统设计.md","ref":"chapters/日志系统设计.md","articles":[]},{"title":"阿里云部署nodejs+mongoDB傻瓜教程","level":"1.1.8","depth":2,"path":"chapters/阿里云部署nodejs+mongoDB傻瓜教程.md","ref":"chapters/阿里云部署nodejs+mongoDB傻瓜教程.md","articles":[]},{"title":"数据库设计","level":"1.1.9","depth":2,"path":"chapters/数据库设计.md","ref":"chapters/数据库设计.md","articles":[]},{"title":"系统设计之控制表--重复数据让我头很大","level":"1.1.10","depth":2,"path":"chapters/系统设计之控制表--重复数据让我头很大.md","ref":"chapters/系统设计之控制表--重复数据让我头很大.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"KatherineLo","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"KatherineLo的文章","gitbook":"*"},"file":{"path":"chapters/使用Spark进行流量日志分析.md","mtime":"2020-02-01T08:41:20.071Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-01T08:23:39.322Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
