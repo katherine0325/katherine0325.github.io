@@ -1,3 +1,6 @@
+start:
+	gitbook serve
+
 publish:
 	mv git-source/.git _book/.git
 	cd _book && git status
@@ -8,6 +11,3 @@ publish:
 
 reset_git_folder:
 	mv _book/.git git-source/.git
-
-start:
-	gitbook serve
