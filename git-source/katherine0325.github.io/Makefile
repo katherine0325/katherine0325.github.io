@@ -3,6 +3,7 @@ start:
 
 publish:
 	mv git-source/.git _book/.git
+	cd _book && git status
 	cd _book && git add .
 	cd _book && git commit -m "add artical"
 	cd _book && git push
