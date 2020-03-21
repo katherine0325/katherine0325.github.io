@@ -1,0 +1,478 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>如何使用Okta验证登陆 · KatherineLo的文章</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="KatherineLo">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Hapi如何单独为某个路由进行身份验证.html" />
+    
+    
+    <link rel="prev" href="Node项目如何写覆盖率测试.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    文章列表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="Node项目如何写覆盖率测试.html">
+            
+                <a href="Node项目如何写覆盖率测试.html">
+            
+                    
+                    Node项目如何写覆盖率测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.2" data-path="如何使用Okta验证登陆.html">
+            
+                <a href="如何使用Okta验证登陆.html">
+            
+                    
+                    如何使用Okta验证登陆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="Hapi如何单独为某个路由进行身份验证.html">
+            
+                <a href="Hapi如何单独为某个路由进行身份验证.html">
+            
+                    
+                    Hapi如何单独为某个路由进行身份验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="使用Spark进行流量日志分析.html">
+            
+                <a href="使用Spark进行流量日志分析.html">
+            
+                    
+                    使用Spark进行流量日志分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="工作风格.html">
+            
+                <a href="工作风格.html">
+            
+                    
+                    工作风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html">
+            
+                <a href="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html">
+            
+                    
+                    大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="Redis集群化方案.html">
+            
+                <a href="Redis集群化方案.html">
+            
+                    
+                    Redis集群化方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="搭建github个人博客----免费、无限流量.html">
+            
+                <a href="搭建github个人博客----免费、无限流量.html">
+            
+                    
+                    搭建github个人博客----免费、无限流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="一个最简版的项目.html">
+            
+                <a href="一个最简版的项目.html">
+            
+                    
+                    一个最简版的项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="日志系统设计.html">
+            
+                <a href="日志系统设计.html">
+            
+                    
+                    日志系统设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.11" data-path="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                <a href="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                    
+                    阿里云部署nodejs+mongoDB傻瓜教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.12" data-path="数据库设计.html">
+            
+                <a href="数据库设计.html">
+            
+                    
+                    数据库设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.13" data-path="系统设计之控制表--重复数据让我头很大.html">
+            
+                <a href="系统设计之控制表--重复数据让我头很大.html">
+            
+                    
+                    系统设计之控制表--重复数据让我头很大
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../contact.html">
+            
+                <a href="../contact.html">
+            
+                    
+                    联系方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >如何使用Okta验证登陆</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;okta&#x9A8C;&#x8BC1;&#x767B;&#x9646;">&#x5982;&#x4F55;&#x4F7F;&#x7528;Okta&#x9A8C;&#x8BC1;&#x767B;&#x9646;</h1>
+<hr>
+<h2 id="&#x4E00;&#x3001;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;okta&#x8D26;&#x53F7;">&#x4E00;&#x3001;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;okta&#x8D26;&#x53F7;</h2>
+<p>&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x53EA;&#x662F;&#x5F00;&#x53D1;&#x8C03;&#x8BD5;&#xFF0C;&#x6240;&#x4EE5;&#x5728;okta dev&#x7F51;&#x9875;&#x4E2D;&#x6CE8;&#x518C;&#x5373;&#x53EF;&#xFF1A;<a href="https://developer.okta.com/signup/" target="_blank">https://developer.okta.com/signup/</a></p>
+<p>&#x6CE8;&#x518C;&#x767B;&#x9646;&#x540E;&#xFF0C;&#x9009;&#x62E9; applications&#xFF0C;&#x7136;&#x540E;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;</p>
+<p><img src="https://uploader.shimo.im/f/s4pCALdiWQ411y3p.png!thumbnail" alt="&#x56FE;&#x7247;"></p>
+<p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x662F;React&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9; Single Page App (SPA)</p>
+<p><img src="https://uploader.shimo.im/f/OSII1QWtINMaZ8S8.png!thumbnail" alt="&#x56FE;&#x7247;"></p>
+<p>Name&#xFF1A;&#x4F60;&#x7684;app&#x7684;&#x540D;&#x5B57;</p>
+<p>Base URIs: &#x4F60;&#x6240;&#x5173;&#x8054;&#x7684;&#x5E94;&#x7528;&#x7684;&#x5730;&#x5740;</p>
+<p>Login redirect URIs: &#x767B;&#x9646;&#x540E;&#x8F6C;&#x5230;&#x7684;&#x9875;&#x9762;</p>
+<p>&#x70B9;&#x51FB; DONE &#x5B8C;&#x6210;</p>
+<p><img src="https://uploader.shimo.im/f/8UMIIp3lAeozzG3w.png!thumbnail" alt="&#x56FE;&#x7247;"></p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A; client id&#xFF0C;&#x8FD9;&#x4E2A;&#x9700;&#x8981;&#x8BB0;&#x4F4F;&#xFF0C;&#x5F85;&#x4F1A;&#x513F;&#x4F1A;&#x7528;&#x5230;</p>
+<p>&#x8FD8;&#x6709;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x5220;&#x9664;admin&#x5B57;&#x6837;&#x4E5F;&#x4F1A;&#x7528;&#x5230;&#xFF1A;<a href="https://dev-779700-admin.okta.com/admin/app/oidc_client/instance/0oa15g6iaiZdY3lis357/#tab-general" target="_blank">https://dev-779700.okta.com</a></p>
+<h2 id="&#x4E8C;&#x3001;&#x670D;&#x52A1;&#x7AEF;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;">&#x4E8C;&#x3001;&#x670D;&#x52A1;&#x7AEF;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;</h2>
+<pre><code>import * as OktaJwtVerifier from &apos;@okta/jwt-verifier&apos;;
+const oktaJwtVerifier = new OktaJwtVerifier({
+  clientId: `${config.clientId}`,
+  issuer: `${config.issuer}/oauth2`,
+  assertClaims: {
+    aud: `${config.clientId}`,
+  },
+});
+const token = ctx.request.header.authorization;
+if (!token) {
+  throw unauthorized((&apos;token not found&apos;));
+}
+const jwtPayload: string | object = await oktaJwtVerifier.verifyAccessToken(
+  token,
+);
+if (typeof jwtPayload === &apos;string&apos;) {
+  throw new Error(&apos;Jwt cannot be parsed&apos;);
+}
+const email: string = get(jwtPayload, &apos;claims.email&apos;);
+if (isEmpty(email)) {
+  throw new Error(&apos;Jwt cannot be parsed&apos;);
+}
+</code></pre><p>ps: &#x8FD9;&#x91CC;&#x7684;config.clientId&#x548C;config.issuer&#x5C31;&#x662F;&#x521A;&#x624D;&#x6211;&#x4EEC;&#x6CE8;&#x518C;&#x7684;&#x65F6;&#x5019;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#x7684;client id&#x548C;&#x5730;&#x5740;</p>
+<h2 id="&#x4E09;&#x3001;&#x5BA2;&#x6237;&#x7AEF;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;">&#x4E09;&#x3001;&#x5BA2;&#x6237;&#x7AEF;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;</h2>
+<pre><code>import { ImplicitCallback, Security } from &apos;@okta/okta-react&apos;;
+const App = () =&gt; (
+  &lt;BrowserRouter&gt;
+    &lt;Security
+        issuer = {oktaIssuer}
+        client_id={oktaClientId}
+        redirect_uri={`${window.location.origin}/auth`}
+      &gt;
+      {authRoute(&apos;/&apos;, MainPage)}
+      &lt;Route exact path=&apos;/auth&apos; component={ImplicitCallback} /&gt;
+    &lt;/Security&gt;
+  &lt;/BrowserRouter&gt;
+);
+
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;));
+</code></pre><h2 id="end">END</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Node项目如何写覆盖率测试.html" class="navigation navigation-prev " aria-label="Previous page: Node项目如何写覆盖率测试">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Hapi如何单独为某个路由进行身份验证.html" class="navigation navigation-next " aria-label="Next page: Hapi如何单独为某个路由进行身份验证">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"如何使用Okta验证登陆","level":"1.1.2","depth":2,"next":{"title":"Hapi如何单独为某个路由进行身份验证","level":"1.1.3","depth":2,"path":"chapters/Hapi如何单独为某个路由进行身份验证.md","ref":"chapters/Hapi如何单独为某个路由进行身份验证.md","articles":[]},"previous":{"title":"Node项目如何写覆盖率测试","level":"1.1.1","depth":2,"path":"chapters/Node项目如何写覆盖率测试.md","ref":"chapters/Node项目如何写覆盖率测试.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"KatherineLo","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"KatherineLo的文章","gitbook":"*"},"file":{"path":"chapters/如何使用Okta验证登陆.md","mtime":"2020-02-22T12:18:53.943Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-21T07:08:04.543Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

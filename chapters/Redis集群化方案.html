@@ -1,0 +1,939 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Redis集群化方案 · KatherineLo的文章</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="KatherineLo">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="搭建github个人博客----免费、无限流量.html" />
+    
+    
+    <link rel="prev" href="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    文章列表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="Node项目如何写覆盖率测试.html">
+            
+                <a href="Node项目如何写覆盖率测试.html">
+            
+                    
+                    Node项目如何写覆盖率测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="如何使用Okta验证登陆.html">
+            
+                <a href="如何使用Okta验证登陆.html">
+            
+                    
+                    如何使用Okta验证登陆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="Hapi如何单独为某个路由进行身份验证.html">
+            
+                <a href="Hapi如何单独为某个路由进行身份验证.html">
+            
+                    
+                    Hapi如何单独为某个路由进行身份验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="使用Spark进行流量日志分析.html">
+            
+                <a href="使用Spark进行流量日志分析.html">
+            
+                    
+                    使用Spark进行流量日志分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="工作风格.html">
+            
+                <a href="工作风格.html">
+            
+                    
+                    工作风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html">
+            
+                <a href="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html">
+            
+                    
+                    大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.7" data-path="Redis集群化方案.html">
+            
+                <a href="Redis集群化方案.html">
+            
+                    
+                    Redis集群化方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="搭建github个人博客----免费、无限流量.html">
+            
+                <a href="搭建github个人博客----免费、无限流量.html">
+            
+                    
+                    搭建github个人博客----免费、无限流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="一个最简版的项目.html">
+            
+                <a href="一个最简版的项目.html">
+            
+                    
+                    一个最简版的项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="日志系统设计.html">
+            
+                <a href="日志系统设计.html">
+            
+                    
+                    日志系统设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.11" data-path="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                <a href="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                    
+                    阿里云部署nodejs+mongoDB傻瓜教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.12" data-path="数据库设计.html">
+            
+                <a href="数据库设计.html">
+            
+                    
+                    数据库设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.13" data-path="系统设计之控制表--重复数据让我头很大.html">
+            
+                <a href="系统设计之控制表--重复数据让我头很大.html">
+            
+                    
+                    系统设计之控制表--重复数据让我头很大
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../contact.html">
+            
+                <a href="../contact.html">
+            
+                    
+                    联系方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Redis集群化方案</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="redis&#x96C6;&#x7FA4;&#x5316;&#x65B9;&#x6848;">Redis&#x96C6;&#x7FA4;&#x5316;&#x65B9;&#x6848;</h1>
+<hr>
+<h3 id="redis&#x4F7F;&#x7528;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x74F6;&#x9888;">Redis&#x4F7F;&#x7528;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x74F6;&#x9888;</h3>
+<pre><code>&#x6211;&#x4EEC;&#x65E5;&#x5E38;&#x5728;&#x5BF9;&#x4E8E;redis&#x7684;&#x4F7F;&#x7528;&#x4E2D;&#xFF0C;&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;&#x4E00;&#x4E9B;&#x95EE;&#x9898;
+1&#x3001;&#x9AD8;&#x53EF;&#x7528;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x4F55;&#x4FDD;&#x8BC1;redis&#x7684;&#x6301;&#x7EED;&#x9AD8;&#x53EF;&#x7528;&#x6027;&#x3002;
+2&#x3001;&#x5BB9;&#x91CF;&#x95EE;&#x9898;&#xFF0C;&#x5355;&#x5B9E;&#x4F8B;redis&#x5185;&#x5B58;&#x65E0;&#x6CD5;&#x65E0;&#x9650;&#x6269;&#x5145;&#xFF0C;&#x8FBE;&#x5230;32G&#x540E;&#x5C31;&#x8FDB;&#x5165;&#x4E86;64&#x4F4D;&#x4E16;&#x754C;&#xFF0C;&#x6027;&#x80FD;&#x4E0B;&#x964D;&#x3002;
+3&#x3001;&#x5E76;&#x53D1;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;redis&#x53F7;&#x79F0;&#x5355;&#x5B9E;&#x4F8B;10&#x4E07;&#x5E76;&#x53D1;&#xFF0C;&#x4F46;&#x4E5F;&#x662F;&#x6709;&#x5C3D;&#x5934;&#x7684;&#x3002;
+</code></pre><h3 id="redis&#x96C6;&#x7FA4;&#x5316;&#x7684;&#x4F18;&#x52BF;&#x3000;&#x3000;">Redis&#x96C6;&#x7FA4;&#x5316;&#x7684;&#x4F18;&#x52BF;&#x3000;&#x3000;</h3>
+<pre><code>1&#x3001;&#x9AD8;&#x53EF;&#x7528;&#xFF0C;&#x9AD8;&#x5E76;&#x53D1;&#xFF0C;&#x9AD8;&#x6027;&#x80FD;
+</code></pre><h3 id="redis&#x96C6;&#x7FA4;&#x5316;&#x7684;&#x6311;&#x6218;">Redis&#x96C6;&#x7FA4;&#x5316;&#x7684;&#x6311;&#x6218;</h3>
+<pre><code>1&#x3001;&#x4F4E;&#x6982;&#x7387;&#x7684;&#x6F0F;key&#x98CE;&#x9669;&#xFF0C;redis&#x96C6;&#x7FA4;&#x4ECE;&#x8282;&#x70B9;&#x7684;&#x5907;&#x4EFD;&#x4E3A;&#x5F02;&#x6B65;&#x5907;&#x4EFD;&#xFF08;&#x4E3A;&#x4FDD;&#x6301;&#x9AD8;&#x6027;&#x80FD;&#xFF09;
+2&#x3001;&#x6D89;&#x53CA;&#x591A;&#x4E2A;key&#x7684;&#x64CD;&#x4F5C;&#x901A;&#x5E38;&#x662F;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#x7684;&#x3002;
+&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#xFF0C;&#x5F53;&#x4E24;&#x4E2A;set&#x6620;&#x5C04;&#x5230;&#x4E0D;&#x540C;&#x7684;redis&#x5B9E;&#x4F8B;&#x4E0A;&#x65F6;&#xFF0C;&#x4F60;&#x5C31;&#x4E0D;&#x80FD;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;set&#x6267;&#x884C;&#x4EA4;&#x96C6;&#x64CD;&#x4F5C;&#x3002;
+3&#x3001;&#x6D89;&#x53CA;&#x591A;&#x4E2A;key&#x7684;redis&#x4E8B;&#x52A1;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x3002;
+4&#x3001;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x96C6;&#x7FA4;&#x5185;&#x7684;&#x6570;&#x636E;&#x5747;&#x8861;&#x3002;
+&#x5206;&#x533A;&#x7684;&#x7C92;&#x5EA6;&#x662F;key&#xFF0C;&#x5982;&#x679C;&#x67D0;&#x4E2A;key&#x7684;&#x503C;&#x662F;&#x5DE8;&#x5927;&#x7684;set&#x3001;list&#xFF0C;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x62C6;&#x5206;&#x3002;
+5&#x3001;&#x589E;&#x52A0;&#x6216;&#x5220;&#x9664;&#x5BB9;&#x91CF;&#x4E5F;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x3002;
+redis&#x96C6;&#x7FA4;&#x9700;&#x8981;&#x652F;&#x6301;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x589E;&#x52A0;&#x3001;&#x5220;&#x9664;&#x8282;&#x70B9;&#x7684;&#x900F;&#x660E;&#x6570;&#x636E;&#x5E73;&#x8861;&#x7684;&#x80FD;&#x529B;&#x3002;
+</code></pre><h3 id="redis&#x96C6;&#x7FA4;&#x7684;&#x51E0;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;">Redis&#x96C6;&#x7FA4;&#x7684;&#x51E0;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</h3>
+<p><strong>1&#x3001;&#x5BA2;&#x6237;&#x7AEF;&#x5206;&#x7247;&#xFF08;&#x4E0D;&#x6253;&#x7B97;&#x91C7;&#x7528;&#xFF09;</strong>
+&#x7279;&#x6027;:</p>
+<ul>
+<li>&#x4F18;&#x70B9;<ul>
+<li>&#x7B80;&#x5355;&#xFF0C;&#x6027;&#x80FD;&#x9AD8;&#x3002;</li>
+</ul>
+</li>
+<li>&#x7F3A;&#x70B9;<ul>
+<li>&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x4E0E;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x903B;&#x8F91;&#x8026;&#x5408;</li>
+<li>&#x53EF;&#x8FD0;&#x7EF4;&#x6027;&#x5DEE;</li>
+<li>&#x591A;&#x4E1A;&#x52A1;&#x5404;&#x81EA;&#x4F7F;&#x7528;redis&#xFF0C;&#x96C6;&#x7FA4;&#x8D44;&#x6E90;&#x96BE;&#x4EE5;&#x7BA1;&#x7406;</li>
+<li>&#x4E0D;&#x652F;&#x6301;&#x52A8;&#x6001;&#x589E;&#x5220;&#x8282;&#x70B9;</li>
+</ul>
+</li>
+</ul>
+<p><strong>2&#x3001;&#x57FA;&#x4E8E;&#x4EE3;&#x7406;&#x7684;&#x5206;&#x7247;</strong>
+&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x5230;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#xFF0C;&#x4EE3;&#x7406;&#x89E3;&#x6790;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x81F3;&#x6B63;&#x786E;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x7ED3;&#x679C;&#x56DE;&#x590D;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</p>
+<p>&#x5F00;&#x6E90;&#x65B9;&#x6848;&#xFF1A;<code>codis</code></p>
+<p>&#x7279;&#x6027;:</p>
+<ul>
+<li>&#x900F;&#x660E;&#x63A5;&#x5165;<ul>
+<li>&#x4E1A;&#x52A1;&#x7A0B;&#x5E8F;&#x4E0D;&#x7528;&#x5173;&#x5FC3;&#x540E;&#x7AEF;Redis&#x5B9E;&#x4F8B;&#xFF0C;&#x5207;&#x6362;&#x6210;&#x672C;&#x4F4E;&#x3002;</li>
+</ul>
+</li>
+<li>Proxy &#x7684;&#x903B;&#x8F91;&#x548C;&#x5B58;&#x50A8;&#x7684;&#x903B;&#x8F91;&#x662F;&#x9694;&#x79BB;&#x7684;&#x3002;</li>
+<li>&#x4EE3;&#x7406;&#x5C42;&#x591A;&#x4E86;&#x4E00;&#x6B21;&#x8F6C;&#x53D1;&#xFF0C;&#x6027;&#x80FD;&#x6709;&#x6240;&#x635F;&#x8017;&#x3002;</li>
+</ul>
+<p><strong>3&#x3001;&#x8DEF;&#x7531;&#x67E5;&#x8BE2;</strong>
+&#x5C06;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x5230;&#x4EFB;&#x610F;&#x8282;&#x70B9;&#xFF0C;&#x63A5;&#x6536;&#x5230;&#x8BF7;&#x6C42;&#x7684;&#x8282;&#x70B9;&#x4F1A;&#x5C06;&#x67E5;&#x8BE2;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x5230;&#x6B63;&#x786E;&#x7684;&#x8282;&#x70B9;&#x4E0A;&#x6267;&#x884C;&#x3002;
+&#x5F00;&#x6E90;&#x65B9;&#x6848;
+<code>Redis-cluster</code></p>
+<h3 id="redis&#x96C6;&#x7FA4;&#x5316;&#x65B9;&#x6848;">Redis&#x96C6;&#x7FA4;&#x5316;&#x65B9;&#x6848;</h3>
+<p>&#x7ECF;&#x8FC7;&#x7B5B;&#x9009;&#xFF0C;&#x5C06;codis&#x548C;redis-cluster&#x5217;&#x5165;CRM&#x9879;&#x76EE;redis&#x96C6;&#x7FA4;&#x5316;&#x7684;&#x5F85;&#x9009;&#x65B9;&#x6848;&#xFF0C;&#x671B;&#x9886;&#x5BFC;&#x5546;&#x8BA8;&#x51B3;&#x8BAE;&#x3002;
+<strong><code>Codis</code> VS <code>Redis</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x5BF9;&#x6BD4;&#x53C2;&#x6570;</th>
+<th>Codis</th>
+<th>Redis-cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redis&#x7248;&#x672C;</td>
+<td>&#x57FA;&#x4E8E;2.8&#x5206;&#x652F;&#x5F00;&#x53D1;</td>
+<td>&gt;= 3.0</td>
+</tr>
+<tr>
+<td>&#x90E8;&#x7F72;</td>
+<td>&#x8F83;&#x590D;&#x6742;&#x3002;</td>
+<td>&#x7B80;&#x5355;</td>
+</tr>
+<tr>
+<td>&#x8FD0;&#x7EF4;</td>
+<td>Dashboard,&#x8FD0;&#x7EF4;&#x65B9;&#x4FBF;&#x3002;</td>
+<td>&#x8FD0;&#x7EF4;&#x4EBA;&#x5458;&#x624B;&#x52A8;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x64CD;&#x4F5C;&#x3002;</td>
+</tr>
+<tr>
+<td>&#x76D1;&#x63A7;</td>
+<td>&#x53EF;&#x5728;Dashboard&#x91CC;&#x76D1;&#x63A7;&#x5F53;&#x524D;redis-server&#x8282;&#x70B9;&#x60C5;&#x51B5;&#xFF0C;&#x8F83;&#x4E3A;&#x4FBF;&#x6377;&#x3002;</td>
+<td>&#x9700;&#x914D;&#x5408;&#x5176;&#x4ED6;&#x76D1;&#x63A7;&#x5E94;&#x7528;&#x5B9E;&#x73B0;&#xFF08;RedisLive&#x3001;RedisClusterManager&#x3001;&#x7B49;&#x2026;&#x2026;&#xFF08;&#x672A;&#x8C03;&#x7814;&#xFF0C;&#x4F7F;&#x7528;&#x524D;&#x5E94;&#x8C03;&#x7814;&#x8BC4;&#x4F30;&#xFF09;</td>
+</tr>
+<tr>
+<td>&#x7EC4;&#x7EC7;&#x67B6;&#x6784;</td>
+<td>Proxy-Based, &#x7C7B;&#x4E2D;&#x5FC3;&#x5316;&#x67B6;&#x6784;&#xFF0C;&#x96C6;&#x7FA4;&#x7BA1;&#x7406;&#x5C42;&#x4E0E;&#x5B58;&#x50A8;&#x5C42;&#x89E3;&#x8026;&#x3002;</td>
+<td>P2P&#x6A21;&#x578B;&#xFF0C;gossip&#x534F;&#x8BAE;&#x8D1F;&#x8D23;&#x96C6;&#x7FA4;&#x5185;&#x90E8;&#x901A;&#x4FE1;&#x3002;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;</td>
+</tr>
+<tr>
+<td>&#x4F38;&#x7F29;&#x6027;</td>
+<td>&#x652F;&#x6301;&#x52A8;&#x6001;&#x4F38;&#x7F29;&#x3002;</td>
+<td>&#x652F;&#x6301;&#x52A8;&#x6001;&#x4F38;&#x7F29;</td>
+</tr>
+<tr>
+<td>&#x4E3B;&#x8282;&#x70B9;&#x5931;&#x6548;&#x5904;&#x7406;</td>
+<td>&#x81EA;&#x52A8;&#x9009;&#x4E3B;&#x3002;</td>
+<td>&#x81EA;&#x52A8;&#x9009;&#x4E3B;&#x3002;</td>
+</tr>
+<tr>
+<td>&#x6570;&#x636E;&#x8FC1;&#x79FB;</td>
+<td>&#x7B80;&#x5355;&#x3002;&#x652F;&#x6301;&#x900F;&#x660E;&#x8FC1;&#x79FB;&#x3002;</td>
+<td>&#x9700;&#x8981;&#x8FD0;&#x7EF4;&#x4EBA;&#x5458;&#x624B;&#x52A8;&#x64CD;&#x4F5C;&#x3002;&#x652F;&#x6301;&#x900F;&#x660E;&#x8FC1;&#x79FB;&#x3002;</td>
+</tr>
+<tr>
+<td>&#x5347;&#x7EA7;</td>
+<td>&#x57FA;&#x4E8E;redis 2.8&#x5206;&#x652F;&#x5F00;&#x53D1;&#xFF0C;&#x540E;&#x7EED;&#x5347;&#x7EA7;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#xFF1B;Redis-server&#x5FC5;&#x987B;&#x662F;&#x6B64;&#x7248;&#x672C;&#x7684;codis&#xFF0C;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x65B0;&#x7248;&#x672C;redis&#x7684;&#x589E;&#x5F3A;&#x7279;&#x6027;&#x3002;</td>
+<td>Redis&#x5B98;&#x65B9;&#x63A8;&#x51FA;&#xFF0C;&#x540E;&#x7EED;&#x5347;&#x7EA7;&#x53EF;&#x4FDD;&#x8BC1;&#x3002;</td>
+</tr>
+<tr>
+<td>&#x53EF;&#x9760;&#x6027;</td>
+<td>&#x7ECF;&#x8FC7;&#x7EBF;&#x4E0A;&#x670D;&#x52A1;&#x9A8C;&#x8BC1;&#xFF0C;&#x53EF;&#x9760;&#x6027;&#x8F83;&#x9AD8;&#x3002;</td>
+<td>&#x65B0;&#x63A8;&#x51FA;&#xFF0C;&#x5751;&#x4F1A;&#x6BD4;&#x8F83;&#x591A;&#x3002;&#x9047;&#x5230;bug&#x4E4B;&#x540E;&#x9700;&#x8981;&#x7B49;&#x5B98;&#x7F51;&#x5347;&#x7EA7;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x672C;&#x5BF9;&#x6BD4;&#x57FA;&#x4E8E;2016.09&#xFF0C;&#x53C2;&#x8003;&#x65F6;&#x8BF7;&#x8003;&#x8651;&#x5176;&#x65F6;&#x6548;&#x6027;</p>
+<h2 id="&#x4E00;&#x3001;redis-cluster">&#x4E00;&#x3001;Redis-Cluster</h2>
+<p>1.1&#x3001;redis cluster&#x7684;&#x73B0;&#x72B6;
+ &#x3000;&#x3000;&#x76EE;&#x524D;redis&#x652F;&#x6301;&#x7684;cluster&#x7279;&#x6027;&#xFF1A;
+&#x3000;&#x3000;1):&#x8282;&#x70B9;&#x81EA;&#x52A8;&#x53D1;&#x73B0;
+&#x3000;&#x3000;2):slave-&gt;master &#x9009;&#x4E3E;,&#x96C6;&#x7FA4;&#x5BB9;&#x9519;
+&#x3000;&#x3000;3):Hot resharding:&#x5728;&#x7EBF;&#x5206;&#x7247;
+&#x3000;&#x3000;4):&#x8FDB;&#x7FA4;&#x7BA1;&#x7406;:cluster xxx
+&#x3000;&#x3000;5):&#x57FA;&#x4E8E;&#x914D;&#x7F6E;(nodes-port.conf)&#x7684;&#x96C6;&#x7FA4;&#x7BA1;&#x7406;
+&#x3000;&#x3000;6):ASK &#x8F6C;&#x5411;/MOVED &#x8F6C;&#x5411;&#x673A;&#x5236;.
+1.2&#x3001;redis cluster &#x67B6;&#x6784;
+&#x3000;&#x3000;1)redis-cluster&#x67B6;&#x6784;&#x56FE;</p>
+<p>&#x3000;&#x3000;&#x67B6;&#x6784;&#x7EC6;&#x8282;:
+&#x3000;&#x3000;(1)&#x6240;&#x6709;&#x7684;redis&#x8282;&#x70B9;&#x5F7C;&#x6B64;&#x4E92;&#x8054;(PING-PONG&#x673A;&#x5236;),&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x534F;&#x8BAE;&#x4F18;&#x5316;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x548C;&#x5E26;&#x5BBD;.
+&#x3000;&#x3000;(2)&#x8282;&#x70B9;&#x7684;fail&#x662F;&#x901A;&#x8FC7;&#x96C6;&#x7FA4;&#x4E2D;&#x8D85;&#x8FC7;&#x534A;&#x6570;&#x7684;&#x8282;&#x70B9;&#x68C0;&#x6D4B;&#x5931;&#x6548;&#x65F6;&#x624D;&#x751F;&#x6548;.
+&#x3000;&#x3000;(3)&#x5BA2;&#x6237;&#x7AEF;&#x4E0E;redis&#x8282;&#x70B9;&#x76F4;&#x8FDE;,&#x4E0D;&#x9700;&#x8981;&#x4E2D;&#x95F4;proxy&#x5C42;.&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x96C6;&#x7FA4;&#x6240;&#x6709;&#x8282;&#x70B9;,&#x8FDE;&#x63A5;&#x96C6;&#x7FA4;&#x4E2D;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x53EF;&#x7528;&#x8282;&#x70B9;&#x5373;&#x53EF;
+&#x3000;&#x3000;(4)redis-cluster&#x628A;&#x6240;&#x6709;&#x7684;&#x7269;&#x7406;&#x8282;&#x70B9;&#x6620;&#x5C04;&#x5230;[0-16383]slot&#x4E0A;,cluster &#x8D1F;&#x8D23;&#x7EF4;&#x62A4;node&lt;-&gt;slot&lt;-&gt;value</p>
+<p>   2) redis-cluster&#x9009;&#x4E3E;:&#x5BB9;&#x9519;</p>
+<p>&#x3000;&#x3000;(1)&#x9886;&#x7740;&#x9009;&#x4E3E;&#x8FC7;&#x7A0B;&#x662F;&#x96C6;&#x7FA4;&#x4E2D;&#x6240;&#x6709;master&#x53C2;&#x4E0E;,&#x5982;&#x679C;&#x534A;&#x6570;&#x4EE5;&#x4E0A;master&#x8282;&#x70B9;&#x4E0E;master&#x8282;&#x70B9;&#x901A;&#x4FE1;&#x8D85;&#x8FC7;(cluster-node-timeout),&#x8BA4;&#x4E3A;&#x5F53;&#x524D;master&#x8282;&#x70B9;&#x6302;&#x6389;.
+&#x3000;&#x3000;(2):&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x6574;&#x4E2A;&#x96C6;&#x7FA4;&#x4E0D;&#x53EF;&#x7528;(cluster_state:fail),&#x5F53;&#x96C6;&#x7FA4;&#x4E0D;&#x53EF;&#x7528;&#x65F6;,&#x6240;&#x6709;&#x5BF9;&#x96C6;&#x7FA4;&#x7684;&#x64CD;&#x4F5C;&#x505A;&#x90FD;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x6536;&#x5230;((error) CLUSTERDOWN The cluster is down)&#x9519;&#x8BEF;
+    &#x3000;&#x3000;a:&#x5982;&#x679C;&#x96C6;&#x7FA4;&#x4EFB;&#x610F;master&#x6302;&#x6389;,&#x4E14;&#x5F53;&#x524D;master&#x6CA1;&#x6709;slave.&#x96C6;&#x7FA4;&#x8FDB;&#x5165;fail&#x72B6;&#x6001;,&#x4E5F;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6210;&#x8FDB;&#x7FA4;&#x7684;slot&#x6620;&#x5C04;[0-16383]&#x4E0D;&#x5B8C;&#x6210;&#x65F6;&#x8FDB;&#x5165;fail&#x72B6;&#x6001;.
+    &#x3000;&#x3000;b:&#x5982;&#x679C;&#x8FDB;&#x7FA4;&#x8D85;&#x8FC7;&#x534A;&#x6570;&#x4EE5;&#x4E0A;master&#x6302;&#x6389;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x6709;slave&#x96C6;&#x7FA4;&#x8FDB;&#x5165;fail&#x72B6;&#x6001;.</p>
+<h2 id="&#x4E8C;&#x3001;redis-cluster&#x5B89;&#x88C5;">&#x4E8C;&#x3001;redis cluster&#x5B89;&#x88C5;</h2>
+<p>1&#x3001;&#x51C6;&#x5907;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5E76;&#x5728;&#x6BCF;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x5B89;&#x88C5;&#x597D;redis&#x3002;&#xFF08;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x591A;&#x5C11;&#x53F0;&#x673A;&#x5668;&#x5E94;&#x5347;&#x7EA7;&#x8BF7;&#x6559;&#xFF09;</p>
+<p>  2&#x3001;&#x521B;&#x5EFA;redis&#x8282;&#x70B9;
+     &#x5047;&#x8BBE;2&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#xFF1A;192.168.1.237&#xFF0C;192.168.1.238.&#x6BCF;&#x5206;&#x670D;&#x52A1;&#x5668;&#x6709;3&#x4E2A;&#x8282;&#x70B9;&#x3002;
+  &#x6211;&#x5148;&#x5728;192.168.1.237&#x521B;&#x5EFA;3&#x4E2A;&#x8282;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-shell">  cd /usr/local/
+  mkdir redis_cluster  //&#x521B;&#x5EFA;&#x96C6;&#x7FA4;&#x76EE;&#x5F55;
+  mkdir 7000 7001 7002  //&#x5206;&#x522B;&#x4EE3;&#x8868;&#x4E09;&#x4E2A;&#x8282;&#x70B9;    &#x5176;&#x5BF9;&#x5E94;&#x7AEF;&#x53E3; 7000 7001 7002
+ //&#x521B;&#x5EFA;7000&#x8282;&#x70B9;&#xFF0C;&#x62F7;&#x8D1D;&#x5230;7000&#x76EE;&#x5F55;
+ cp /usr/local/redis-3.2.1/redis.conf  ./redis_cluster/7000/   
+ //&#x62F7;&#x8D1D;&#x5230;7001&#x76EE;&#x5F55;
+ cp /usr/local/redis-3.2.1/redis.conf  ./redis_cluster/7001/   
+ //&#x62F7;&#x8D1D;&#x5230;7002&#x76EE;&#x5F55;
+ cp /usr/local/redis-3.2.1/redis.conf  ./redis_cluster/7002/
+</code></pre>
+<p>   &#x5206;&#x522B;&#x5BF9;7001&#xFF0C;7002&#x3001;7003&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;3&#x4E2A;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-shell">daemonize    yes                          //redis&#x540E;&#x53F0;&#x8FD0;&#x884C;
+pidfile  /var/run/redis_7000.pid          //pidfile&#x6587;&#x4EF6;&#x5BF9;&#x5E94;7000,7002,7003
+port  7000                                //&#x7AEF;&#x53E3;7000,7002,7003
+cluster-enabled  yes                      //&#x5F00;&#x542F;&#x96C6;&#x7FA4;  &#x628A;&#x6CE8;&#x91CA;#&#x53BB;&#x6389;
+cluster-config-file  nodes_7000.conf      //&#x96C6;&#x7FA4;&#x7684;&#x914D;&#x7F6E;  &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x9996;&#x6B21;&#x542F;&#x52A8;&#x81EA;&#x52A8;&#x751F;&#x6210; 7000,7001,7002
+cluster-node-timeout  5000                //&#x8BF7;&#x6C42;&#x8D85;&#x65F6;  &#x8BBE;&#x7F6E;5&#x79D2;&#x591F;&#x4E86;
+appendonly  yes                           //aof&#x65E5;&#x5FD7;&#x5F00;&#x542F;
+</code></pre>
+<p>&#x6709;&#x9700;&#x8981;&#x5C31;&#x5F00;&#x542F;&#xFF0C;&#x5B83;&#x4F1A;&#x6BCF;&#x6B21;&#x5199;&#x64CD;&#x4F5C;&#x90FD;&#x8BB0;&#x5F55;&#x4E00;&#x6761;&#x65E5;&#x5FD7;</p>
+<p>&#x5728;192.168.1.238&#x521B;&#x5EFA;3&#x4E2A;&#x8282;&#x70B9;&#xFF1A;&#x5BF9;&#x5E94;&#x7684;&#x7AEF;&#x53E3;&#x6539;&#x4E3A;7003,7004,7005.&#x914D;&#x7F6E;&#x5BF9;&#x5E94;&#x7684;&#x6539;&#x4E00;&#x4E0B;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;
+   3&#x3001;&#x4E24;&#x53F0;&#x673A;&#x542F;&#x52A8;&#x5404;&#x8282;&#x70B9;(&#x4E24;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x65B9;&#x5F0F;&#x4E00;&#x6837;)</p>
+<pre><code class="lang-shell">cd /usr/local
+redis-server  redis_cluster/7000/redis.conf
+redis-server  redis_cluster/7001/redis.conf
+redis-server  redis_cluster/7002/redis.conf
+redis-server  redis_cluster/7003/redis.conf
+redis-server  redis_cluster/7004/redis.conf
+redis-server  redis_cluster/7005/redis.conf
+</code></pre>
+<p>4&#x3001;&#x67E5;&#x770B;&#x670D;&#x52A1;</p>
+<pre><code class="lang-shell">    ps -ef | grep redis   #&#x67E5;&#x770B;&#x662F;&#x5426;&#x542F;&#x52A8;&#x6210;&#x529F;
+    netstat -tnlp | grep redis #&#x53EF;&#x4EE5;&#x770B;&#x5230;redis&#x76D1;&#x542C;&#x7AEF;&#x53E3;
+</code></pre>
+<p>&#x4E09;&#x3001;&#x521B;&#x5EFA;&#x96C6;&#x7FA4;
+  &#x51C6;&#x5907;&#x597D;&#x4E86;&#x642D;&#x5EFA;&#x96C6;&#x7FA4;&#x7684;redis&#x8282;&#x70B9;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x628A;&#x8FD9;&#x4E9B;&#x8282;&#x70B9;&#x90FD;&#x4E32;&#x8FDE;&#x8D77;&#x6765;&#x642D;&#x5EFA;&#x96C6;&#x7FA4;&#x3002;&#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#xFF1A;redis-trib.rb(/usr/local/redis-3.2.1/src/redis-trib.rb)&#xFF0C;&#x5B83;&#x662F;&#x7528;ruby&#x5199;&#x7684;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x5B89;&#x88C5;ruby.</p>
+<pre><code class="lang-shell">yum -y install ruby ruby-devel rubygems rpm-build
+</code></pre>
+<p>&#x518D;&#x7528; gem &#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x6765;&#x5B89;&#x88C5; redis&#x63A5;&#x53E3;    gem&#x662F;ruby&#x7684;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x5305;.</p>
+<pre><code class="lang-shell">gem install redis
+</code></pre>
+<p>&#x4E24;&#x53F0;Server&#x90FD;&#x8981;&#x5B89;&#x88C5;&#x3002;
+&#x8FD0;&#x884C;redis-trib.rb</p>
+<pre><code class="lang-shell"> /usr/local/redis-3.2.1/src/redis-trib.rb
+   Usage: redis-trib &lt;command&gt; &lt;options&gt; &lt;arguments ...&gt;
+   reshard        host:port
+                  --to &lt;arg&gt;
+                  --yes
+                  --slots &lt;arg&gt;
+                  --from &lt;arg&gt;
+  check          host:port
+  call            host:port command arg arg .. arg
+  set-timeout    host:port milliseconds
+  add-node        new_host:new_port existing_host:existing_port
+                  --master-id &lt;arg&gt;
+                  --slave
+  del-node        host:port node_id
+  fix            host:port
+  import          host:port
+                  --from &lt;arg&gt;
+  help            (show this help)
+  create          host1:port1 ... hostN:portN
+                  --replicas &lt;arg&gt;
+For check, fix, reshard, del-node, set-timeout you can specify the host and port of any working node in the cluster.
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x53C2;&#x6570;create &#x521B;&#x5EFA; (&#x5728;192.168.1.237&#x4E2D;&#x6765;&#x521B;&#x5EFA;)</p>
+<pre><code class="lang-shell"> /usr/local/redis-3.2.1/src/redis-trib.rb  create  --replicas  1  192.168.1.237:7000 192.168.1.237:7001  192.168.1.237:7003 192.168.1.238:7003  192.168.1.238:7004  192.168.1.238:7005
+</code></pre>
+<p> --replicas  1  &#x8868;&#x793A; &#x81EA;&#x52A8;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;master&#x8282;&#x70B9;&#x5206;&#x914D;&#x4E00;&#x4E2A;slave&#x8282;&#x70B9;    &#x4E0A;&#x9762;&#x6709;6&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x7A0B;&#x5E8F;&#x4F1A;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x89C4;&#x5219;&#x751F;&#x6210; 3&#x4E2A;master&#xFF08;&#x4E3B;&#xFF09;3&#x4E2A;slave(&#x4ECE;)
+ &#x9632;&#x706B;&#x5899;&#x4E00;&#x5B9A;&#x8981;&#x5F00;&#x653E;&#x76D1;&#x542C;&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x521B;&#x5EFA;&#x5931;&#x8D25;&#x3002;
+ &#x8FD0;&#x884C;&#x4E2D;&#xFF0C;&#x63D0;&#x793A;Can I set the above configuration? (type &apos;yes&apos; to accept): yes 
+ &#x63A5;&#x4E0B;&#x6765; &#x63D0;&#x793A;  Waiting for the cluster to join..........  &#xFF0C;Sending Cluster Meet Message to join the Cluster.
+    &#x9700;&#x8981;&#x5230;Server2&#x4E0A;&#x505A;&#x8FD9;&#x6837;&#x7684;&#x64CD;&#x4F5C;&#x3002;
+    &#x5728;192.168.1.238, redis-cli -c -p 700*  &#x5206;&#x522B;&#x8FDB;&#x5165;redis&#x5404;&#x8282;&#x70B9;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x547D;&#x4EE4;&#x7A97;&#x53E3;&#xFF0C; &#x4F9D;&#x6B21;&#x8F93;&#x5165; cluster meet 192.168.1.238 7000&#x2026;&#x2026;
+    &#x56DE;&#x5230;Server1&#xFF0C;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#x4E86;&#x3002;
+    &#x67E5;&#x770B;&#x4E00;&#x4E0B; /usr/local/redis/src/redis-trib.rb check 192.168.1.237:7000
+    &#x5230;&#x8FD9;&#x91CC;&#x96C6;&#x7FA4;&#x5DF2;&#x7ECF;&#x521D;&#x6B65;&#x642D;&#x5EFA;&#x597D;&#x4E86;&#x3002;</p>
+<p>&#x56DB;&#x3001;&#x6D4B;&#x8BD5;
+1&#xFF09;get &#x548C; set&#x6570;&#x636E;
+  2&#xFF09;&#x5047;&#x8BBE;&#x6D4B;&#x8BD5;&#xFF08;down&#x6389;&#x5176;&#x4E2D;&#x4E00;&#x53F0;&#x673A;&#x5668;&#x6216;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#xFF09;</p>
+<p>&#x4E94;&#x3001;CRM&#x4E0E;REDIS-CLUSTER&#x96C6;&#x7FA4;&#x7684;&#x63A5;&#x5165;
+1&#x3001;&#x539F;crm&#x7CFB;&#x7EDF;&#x901A;&#x8FC7;node_redis&#x5305;&#x8FDE;&#x63A5;redis&#xFF0C;&#x91C7;&#x7528;redis-cluster&#x96C6;&#x7FA4;&#x540E;&#xFF0C;redis-cluster&#x91C7;&#x7528;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x65B9;&#x5F0F;&#xFF0C;&#x539F;&#x8FDE;&#x63A5;&#x4EE3;&#x7801;&#x65E0;&#x9700;&#x66F4;&#x6539;&#x3002;&#x542F;&#x52A8;redis-cluster&#x7684;ruby&#x811A;&#x672C;&#x4E0D;&#x77E5;&#x9053;&#x652F;&#x4E0D;&#x652F;&#x6301;&#x5FC3;&#x8DF3;&#xFF08;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x76F8;&#x5173;&#x8D44;&#x6599;&#xFF09;&#xFF0C;&#x4E0D;&#x4E86;&#x89E3;&#x5F53;&#x5E94;&#x7528;&#x8FDE;&#x63A5;&#x7684;&#x670D;&#x52A1;&#x5668;&#x6302;&#x6389;&#x4E4B;&#x540E;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4FDD;&#x6301;&#x9AD8;&#x53EF;&#x7528;&#xFF08;&#x5E94;&#x4F5C;&#x5B9E;&#x9A8C;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x5728;&#x5E94;&#x7528;&#x7AEF;&#x505A;&#x201C;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&#x8FDE;&#x63A5;&#x4E0B;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x201D;&#x7684;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#xFF09;
+2&#x3001;redis&#x96C6;&#x7FA4;&#x4E0D;&#x652F;&#x6301;&#x6D89;&#x53CA;&#x8DE8;key&#x7684;&#x4EA4;&#x96C6;&#x5E76;&#x96C6;&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x4E86;&#x89E3;&#x539F;&#x7CFB;&#x7EDF;&#x6D89;&#x53CA;redis&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x6709;&#x8DE8;key&#x7684;&#x4EA4;&#x5E76;&#x96C6;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x6709;&#xFF0C;&#x5E94;&#x8BC4;&#x4F30;&#x4FEE;&#x6539;&#x91CF;&#x7684;&#x5927;&#x5C0F;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#xFF08;&#x5347;&#x7EA7;&#x8BF7;&#x6559;&#xFF09;</p>
+<h2 id="&#x4E8C;&#x3001;codis">&#x4E8C;&#x3001;Codis</h2>
+<p>Codis &#x662F;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F; Redis &#x89E3;&#x51B3;&#x65B9;&#x5F0F;, &#x5BF9;&#x4E8E;&#x4E0A;&#x5C42;&#x7684;&#x5E94;&#x7528;&#x6765;&#x8BF4;, &#x8FDE;&#x63A5;&#x5230; Codis Proxy &#x548C;&#x8FDE;&#x63A5;&#x539F;&#x751F;&#x7684; Redis Server &#x6CA1;&#x6709;&#x660E;&#x663E;&#x7684;&#x5DEE;&#x522B; (&#x4E0D;&#x652F;&#x6301;&#x7684;&#x547D;&#x4EE4;&#x5217;&#x8868;), &#x4E0A;&#x5C42;&#x5E94;&#x7528;&#x80FD;&#x591F;&#x50CF;&#x4F7F;&#x7528;&#x5355;&#x673A;&#x7684; Redis &#x4E00;&#x6837;&#x4F7F;&#x7528;, Codis &#x5E95;&#x5C42;&#x4F1A;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x8F6C;&#x53D1;, &#x4E0D;&#x505C;&#x673A;&#x7684;&#x6570;&#x636E;&#x8FC1;&#x79FB;&#x7B49;&#x5DE5;&#x4F5C;, &#x5168;&#x90E8;&#x540E;&#x8FB9;&#x7684;&#x4E00;&#x5207;&#x4E8B;&#x60C5;, &#x5BF9;&#x4E8E;&#x524D;&#x9762;&#x7684;client&#x6765;&#x8BF4;&#x662F;&#x900F;&#x660E;&#x7684;, &#x80FD;&#x591F;&#x7B80;&#x5355;&#x7684;&#x89C9;&#x5F97;&#x540E;&#x8FB9;&#x8FDE;&#x63A5;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x65E0;&#x9650;&#x5927;&#x7684; Redis &#x670D;&#x52A1;.
+&#x57FA;&#x672C;&#x6846;&#x67B6;&#x4F8B;&#x5982;&#x4EE5;&#x4E0B;&#xFF1A;</p>
+<p>Codis &#x7531;&#x56DB;&#x90E8;&#x5206;&#x7EC4;&#x6210;:
+Codis Proxy (codis-proxy)
+Codis Manager (codis-config)
+Codis Redis (codis-server)
+ZooKeeper</p>
+<p>codis-proxy &#x662F;client&#x8FDE;&#x63A5;&#x7684; Redis &#x4EE3;&#x7406;&#x670D;&#x52A1;, codis-proxy &#x672C;&#x8EAB;&#x5B9E;&#x73B0;&#x4E86; Redis &#x534F;&#x8BAE;, &#x8868;&#x73B0;&#x5F97;&#x548C;&#x4E00;&#x4E2A;&#x539F;&#x751F;&#x7684; Redis &#x6CA1;&#x4EC0;&#x4E48;&#x5DEE;&#x522B; (&#x5C31;&#x50CF; Twemproxy), &#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x6765;&#x8BF4;, &#x80FD;&#x591F;&#x90E8;&#x7F72;&#x591A;&#x4E2A; codis-proxy, codis-proxy &#x672C;&#x8EAB;&#x662F;&#x65E0;&#x72B6;&#x6001;&#x7684;.</p>
+<p>codis-config &#x662F; Codis &#x7684;&#x7BA1;&#x7406;&#x5DE5;&#x5177;, &#x652F;&#x6301;&#x5305;&#x542B;, &#x52A0;&#x5165;/&#x5220;&#x9664; Redis &#x8282;&#x70B9;, &#x52A0;&#x5165;/&#x5220;&#x9664; Proxy &#x8282;&#x70B9;, &#x53D1;&#x8D77;&#x6570;&#x636E;&#x8FC1;&#x79FB;&#x7B49;&#x64CD;&#x4F5C;. codis-config &#x672C;&#x8EAB;&#x8FD8;&#x81EA;&#x5E26;&#x4E86;&#x4E00;&#x4E2A; http server, &#x4F1A;&#x542F;&#x52A8;&#x4E00;&#x4E2A; dashboard, &#x7528;&#x6237;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#x89C2;&#x5BDF; Codis &#x96C6;&#x7FA4;&#x7684;&#x6267;&#x884C;&#x72B6;&#x6001;.</p>
+<p>codis-server &#x662F; Codis &#x9879;&#x76EE;&#x7EF4;&#x62A4;&#x7684;&#x4E00;&#x4E2A; Redis &#x5206;&#x652F;, &#x57FA;&#x4E8E; 2.8.13 &#x5F00;&#x53D1;, &#x589E;&#x52A0;&#x4E86; slot &#x7684;&#x652F;&#x6301;&#x548C;&#x539F;&#x5B50;&#x7684;&#x6570;&#x636E;&#x8FC1;&#x79FB;&#x6307;&#x4EE4;. Codis &#x4E0A;&#x5C42;&#x7684; codis-proxy &#x548C; codis-config &#x4EC5;&#x4EC5;&#x80FD;&#x548C;&#x8FD9;&#x4E2A;&#x7248;&#x672C;&#x53F7;&#x7684; Redis &#x4EA4;&#x4E92;&#x624D;&#x5E72;&#x6B63;&#x5E38;&#x6267;&#x884C;.</p>
+<p>ZooKeeper(&#x4E0B;&#x9762;&#x7B80;&#x79F0;ZK)&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x534F;&#x8C03;&#x670D;&#x52A1;&#x6846;&#x67B6;&#x3002;&#x80FD;&#x591F;&#x505A;&#x5230;&#x5404;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x5F3A;&#x4E00;&#x81F4;&#x6027;&#x3002;&#x7B80;&#x5355;&#x7684;&#x7406;&#x89E3;&#x5C31;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x6539;&#x52A8;&#x67D0;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x540E;&#x3002;&#x5728;&#x5176;&#x5B83;&#x8282;&#x70B9;&#x80FD;&#x591F;&#x6700;&#x65B0;&#x7684;&#x53D8;&#x5316;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x53D8;&#x5316;&#x662F;&#x4E8B;&#x52A1;&#x6027;&#x7684;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x5728;ZK&#x8282;&#x70B9;&#x4E0A;&#x6CE8;&#x518A;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x83B7;&#x5F97;&#x6570;&#x636E;&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+<p>Codis &#x4F9D;&#x8D56; ZooKeeper &#x6765;&#x5B58;&#x653E;&#x6570;&#x636E;&#x8DEF;&#x7531;&#x8868;&#x548C; codis-proxy &#x8282;&#x70B9;&#x7684;&#x5143;&#x4FE1;&#x606F;, codis-config &#x53D1;&#x8D77;&#x7684;&#x547D;&#x4EE4;&#x90FD;&#x4F1A;&#x901A;&#x8FC7; ZooKeeper &#x540C;&#x6B65;&#x5230;&#x5404;&#x4E2A;&#x5B58;&#x6D3B;&#x7684; codis-proxy.</p>
+<pre><code>&#x6CE8;&#xFF1A;1.codis&#x65B0;&#x7248;&#x672C;&#x53F7;&#x652F;&#x6301;redis&#x5230;2.8.21
+2.codis-group&#x5B9E;&#x73B0;redis&#x7684;&#x6C34;&#x5E73;&#x6269;&#x5C55;
+</code></pre><p>&#x4EE5;&#x4E0B;&#x6211;&#x4EEC;&#x6765;&#x90E8;&#x7F72;&#x73AF;&#x5883;&#xFF1A;</p>
+<pre><code class="lang-shell">10.80.80.124 zookeeper_1 codis-configcodis-server-master,slave codis_proxy_1
+10.80.80.126 zookeeper_2 codis-server-master,slavecodis _proxy_2
+10.80.80.123 zookeeper_3 codis-serve-master,slavecodis _proxy_3
+</code></pre>
+<p>&#x8BF4;&#x660E;&#xFF1A;
+1.&#x4E3A;&#x4E86;&#x786E;&#x4FDD;zookeeper&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x4E0E;&#x53EF;&#x9760;&#x6027;&#x3002;&#x6211;&#x4EEC;&#x5728;124&#x3001;126&#x3001;123&#x4E0A;&#x642D;&#x5EFA;zookeeper&#x96C6;&#x7FA4;&#x6765;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF1B;
+2.codis-cofig&#x4F5C;&#x4E3A;&#x5206;&#x5E03;&#x5F0F;redis&#x7684;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x3002;&#x5728;&#x6574;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;server&#x4E2D;&#x4EC5;&#x4EC5;&#x987B;&#x8981;&#x4E00;&#x4E2A;&#x5C31;&#x80FD;&#x591F;&#x5B8C;&#x6BD5;&#x7BA1;&#x7406;&#x4EFB;&#x52A1;&#x3002;
+3.codis-server&#x548C;codis-proxy&#x5728;3&#x53F0;&#x670D;&#x52A1;&#x5668;&#x63D0;&#x4F9B;redis&#x548C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x3002;</p>
+<p>&#x4E00;.&#x90E8;&#x7F72;zookeeper&#x96C6;&#x7FA4;
+1.&#x914D;&#x7F6E;hosts&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;
+10.80.80.124 codis1
+10.80.80.126 codis2
+10.80.80.123 codis3
+2.&#x914D;&#x7F6E;java&#x73AF;&#x5883;&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<p>vim /etc/profile</p>
+<pre><code class="lang-shell">// JAVA
+export JAVA_HOME=/usr/local/jdk1.7.0_71
+export JRE_HOME=/usr/local/jdk1.7.0_71/jre
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+</code></pre>
+<pre><code class="lang-shell">source /etc/profile
+</code></pre>
+<p>3.&#x5B89;&#x88C5;zookeeper&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">cd /usr/local/src
+wget http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
+tar -zxvf zookeeper-3.4.6.tar.gz -C /usr/local
+</code></pre>
+<p>4.&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<p>vim /etc/profile</p>
+<pre><code class="lang-shell">// zookeeper
+ZOOKEEPER_HOME=/usr/local/zookeeper-3.4.6
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
+</code></pre>
+<pre><code class="lang-shell">source /etc/profile
+</code></pre>
+<p>5.&#x6539;&#x52A8;zookeeper&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<p>&#x521B;&#x5EFA;zookeeper&#x7684;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x5939;&#x548C;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5939;</p>
+<pre><code class="lang-shell">mkdir -p /data/zookeeper/zk1/{data,log}
+cd /usr/local/zookeeper-3.4.6/conf
+cp zoo_sample.cfg zoo.cfg
+vim /etc/zoo.cfg
+tickTime=2000
+initLimit=10
+syncLimit=5
+dataDir=/data/zookeeper/zk1/data
+dataLogDir=/data/zookeeper/zk1/log
+clientPort=2181
+server.1=codis1:2888:3888
+server.2=codis2:2888:3888
+server.3=codis3:2888:3888
+</code></pre>
+<p>6.&#x5728;dataDir&#x4E0B;&#x521B;&#x5EFA;myid&#x6587;&#x4EF6;&#x3002;&#x76F8;&#x5E94;&#x8282;&#x70B9;id&#xFF08;&#x5728;3&#x53F0;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">// &#x5728;124&#x4E0A; 
+cd /data/zookeeper/zk1/data
+echo 1 &gt; myid
+// &#x5728;126&#x4E0A; 
+cd /data/zookeeper/zk1/data
+echo 2 &gt; myid
+// &#x5728;123&#x4E0A; 
+cd /data/zookeeper/zk1/data
+echo 3 &gt; myid
+</code></pre>
+<p>7.&#x542F;&#x52A8;zookeeper&#x670D;&#x52A1;&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">/usr/local/zookeeper-3.4.6/bin/zkServer.sh start
+</code></pre>
+<p>&#x6CE8;&#xFF1A;&#x5728;&#x4F60;&#x6240;&#x5728;&#x7684;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;zookeeper.out&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF0C;&#x91CC;&#x9762;&#x8BB0;&#x5F55;&#x4E86;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x5177;&#x4F53;&#x4FE1;&#x606F;&#xFF1B;&#x56E0;&#x4E3A;&#x96C6;&#x7FA4;&#x6CA1;&#x6709;&#x6240;&#x6709;&#x4FE1;&#x606F;&#xFF0C;&#x4F1A;&#x62A5;&#x201C;myid 2&#x6216;myid 3 &#x672A;&#x542F;&#x52A8;&#x201D;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5F53;&#x96C6;&#x7FA4;&#x6240;&#x6709;&#x542F;&#x52A8;&#x540E;&#x5C31;&#x4F1A;&#x6B63;&#x5E38;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x5FFD;&#x7565;&#x3002;</p>
+<p>8.&#x67E5;&#x770B;zookeeper&#x5168;&#x90E8;&#x8282;&#x70B9;&#x7684;&#x72B6;&#x6001;&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">#124
+/usr/local/zookeeper-3.4.6/bin/zkServer.sh status
+JMX enabled by default
+Using config: /usr/local/zookeeper-3.4.6/bin/../conf/zoo.cfg
+Mode: leader
+</code></pre>
+<pre><code class="lang-shell">#126
+/usr/local/zookeeper-3.4.6/bin/zkServer.sh status
+JMX enabled by default
+Using config: /usr/local/zookeeper-3.4.6/bin/../conf/zoo.cfg
+Mode: follower
+</code></pre>
+<pre><code class="lang-shell">#123
+/usr/local/zookeeper-3.4.6/bin/zkServer.sh status
+JMX enabled by default
+Using config: /usr/local/zookeeper-3.4.6/bin/../conf/zoo.cfg
+Mode: follower
+</code></pre>
+<p>&#x4E8C;.&#x90E8;&#x7F72;codis&#x96C6;&#x7FA4;
+1.&#x5B89;&#x88C5;go&#x8BED;&#x8A00;&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">tar -zxvf go1.4.2.linux-amd64.tar.gz -C /usr/local/
+</code></pre>
+<p>2.&#x52A0;&#x5165;go&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<p>vim /etc/profile</p>
+<pre><code class="lang-shell">#go
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=/usr/local/codis
+</code></pre>
+<pre><code class="lang-shell">source /etc/profile
+</code></pre>
+<p>3.&#x5B89;&#x88C5;codis&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">go get github.com/wandoulabs/codis
+cd $GOPATH/src/github.com/wandoulabs/codis
+</code></pre>
+<h1 id="&#x8FD0;&#x884C;&#x7F16;&#x8BD1;&#x6E2C;&#x8BD5;&#x811A;&#x672C;&#xFF0C;&#x7F16;&#x8BD1;go&#x548C;reids&#x3002;">&#x8FD0;&#x884C;&#x7F16;&#x8BD1;&#x6E2C;&#x8BD5;&#x811A;&#x672C;&#xFF0C;&#x7F16;&#x8BD1;go&#x548C;reids&#x3002;</h1>
+<pre><code class="lang-shell">./bootstrap.sh make gotest #&#x5C06;&#x7F16;&#x8BD1;&#x597D;&#x540E;&#xFF0C;&#x628A;bin&#x6587;&#x4EF6;&#x5939;&#x548C;&#x4E00;&#x4E9B;&#x811A;&#x672C;&#x590D;&#x5236;&#x8FC7;&#x53BB;/usr/local/codis&#x6587;&#x4EF6;&#x5939;&#x4E0B; mkdir -p /usr/local/codis/{conf,redis_conf,scripts} cp -rf bin /usr/local/codis/ cp sample/config.ini /usr/local/codis/conf/ cp -rf sample/redis_conf /usr/local/codis cp -rf sample/* /usr/local/codis/scripts
+4.&#x914D;&#x7F6E;codis-proxy&#xFF08;&#x5728;3&#x53F0;server&#x4E0A;&#x3002;&#x5728;&#x6B64;&#x4EE5;124&#x4E3A;&#x4F8B;&#xFF09;
+</code></pre>
+<pre><code class="lang-shell">#124
+cd /usr/local/codis/conf
+vim config.ini
+zk=codis1:2181,codis2:2181,codis3:2181
+product=codis
+#&#x6B64;&#x5904;&#x914D;&#x7F6E;&#x56FE;&#x5F62;&#x5316;&#x754C;&#x9762;&#x7684;dashboard&#x3002;&#x6CE8;&#x610F;codis&#x96C6;&#x7FA4;&#x4EC5;&#x4EC5;&#x8981;&#x4E00;&#x4E2A;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x6307;&#x5411;10.80.80.124:18087
+dashboard_addr=192.168.3.124:18087
+coordinator=zookeeper
+backend_ping_period=5
+session_max_timeout=1800
+session_max_bufsize=131072
+session_max_pipeline=128
+proxy_id=codis_proxy_1
+#126
+cd /usr/local/codis/conf
+vim config.ini
+zk=codis1:2181,codis2:2181,codis3:2181
+product=codis
+#&#x6B64;&#x5904;&#x914D;&#x7F6E;&#x56FE;&#x5F62;&#x5316;&#x754C;&#x9762;&#x7684;dashboard&#xFF0C;&#x6CE8;&#x610F;codis&#x96C6;&#x7FA4;&#x4EC5;&#x4EC5;&#x8981;&#x4E00;&#x4E2A;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x6307;&#x5411;10.80.80.124:18087
+dashboard_addr=192.168.3.124:18087
+coordinator=zookeeper
+backend_ping_period=5
+session_max_timeout=1800
+session_max_bufsize=131072
+session_max_pipeline=128
+proxy_id=codis_proxy_2
+#123
+cd /usr/local/codis/conf
+vim config.ini
+zk=codis1:2181,codis2:2181,codis3:2181
+product=codis
+#&#x6B64;&#x5904;&#x914D;&#x7F6E;&#x56FE;&#x5F62;&#x5316;&#x754C;&#x9762;&#x7684;dashboard&#xFF0C;&#x6CE8;&#x610F;codis&#x96C6;&#x7FA4;&#x4EC5;&#x4EC5;&#x8981;&#x4E00;&#x4E2A;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x6307;&#x5411;10.80.80.124:18087
+dashboard_addr=192.168.3.124:18087
+coordinator=zookeeper
+backend_ping_period=5
+session_max_timeout=1800
+session_max_bufsize=131072
+session_max_pipeline=128
+proxy_id=codis_proxy_3
+</code></pre>
+<p>5.&#x6539;&#x52A8;codis-server&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;&#x5728;3&#x53F0;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">#&#x521B;&#x5EFA;codis-server&#x7684;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x5939;&#x548C;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5939;
+mkdir -p /data/codis/codis-server/{data,logs}
+cd /usr/local/codis/redis_conf
+</code></pre>
+<pre><code class="lang-shell">#&#x4E3B;&#x5E93;
+vim 6380.conf
+daemonize yes
+pidfile /var/run/redis_6380.pid
+port 6379
+logfile &quot;/data/codis_server/logs/codis_6380.log&quot;
+save 900 1
+save 300 10
+save 60 10000
+dbfilename 6380.rdb
+dir /data/codis_server/data
+</code></pre>
+<pre><code class="lang-shell">#&#x4ECE;&#x5E93;
+cp 6380.conf 6381.conf
+sed -i &apos;s/6380/6381/g&apos; 6381.conf
+</code></pre>
+<p>6.&#x52A0;&#x5165;&#x5185;&#x6838;&#x53C3;&#x6570;</p>
+<pre><code class="lang-shell">echo &quot;vm.overcommit_memory = 1&quot; &gt;&gt;  /etc/sysctl.conf
+sysctl -p
+</code></pre>
+<p>7.&#x4F9D;&#x7167;&#x542F;&#x52A8;&#x6D41;&#x7A0B;&#x542F;&#x52A8;</p>
+<pre><code class="lang-shell">cat /usr/loca/codis/scripts/usage.md
+start zookeeper 
+change config items in config.ini 
+./start_dashboard.sh 
+./start_redis.sh 
+./add_group.sh 
+./initslot.sh 
+./start_proxy.sh 
+./set_proxy_online.sh
+</code></pre>
+<p>open browser to <a href="http://localhost:18087/admin" target="_blank">http://localhost:18087/admin</a>
+&#x5C3D;&#x7BA1;scripts&#x6587;&#x4EF6;&#x5939;&#x4EE5;&#x4E0B;&#x6709;&#x5BF9;&#x5E94;&#x542F;&#x52A8;&#x811A;&#x672C;&#xFF0C;&#x4E5F;&#x80FD;&#x591F;&#x7528;startall.sh&#x6240;&#x6709;&#x542F;&#x52A8;&#x3002;&#x4F46;&#x521A;&#x958B;&#x59CB;&#x5EFA;&#x8BAE;&#x624B;&#x52A8;&#x542F;&#x52A8;&#xFF0C;&#x4EE5;&#x719F;&#x6089;codis&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x4E4B;&#x524D;zookeeper&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#xFF0C;&#x4EE5;&#x4E0B;&#x6211;&#x4EEC;&#x6765;&#x542F;&#x52A8;&#x5176;&#x5B83;&#x9879;&#x76EE;&#x3002;
+&#x6CE8;&#xFF1A;1.&#x5728;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x4E2D;&#x987B;&#x8981;&#x6307;&#x5B9A;&#x76F8;&#x5173;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5939;&#x6216;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x4E3A;&#x4FBF;&#x4E8E;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x3002;&#x6211;&#x4EEC;&#x90FD;&#x653E;&#x5728;/data/codis&#x4E0B;&#xFF1B;
+2.dashboard&#x5728;codis&#x96C6;&#x7FA4;&#x4E2D;&#x4EC5;&#x4EC5;&#x987B;&#x8981;&#x5728;&#x4E00;&#x53F0;server&#x4E0A;&#x542F;&#x52A8;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x6B64;&#x5904;&#x5728;124&#x4E0A;&#x542F;&#x52A8;&#xFF1B;&#x51E1;&#x662F;&#x7528;codis_config&#x7684;&#x547D;&#x4EE4;&#x90FD;&#x662F;&#x5728;124&#x4E0A;&#x64CD;&#x4F5C;&#xFF0C;&#x5176;&#x5B83;&#x542F;&#x52A8;&#x9879;&#x987B;&#x8981;&#x5728;3&#x53F0;server&#x4E0A;&#x64CD;&#x4F5C;&#x3002;
+&#x76F8;&#x5173;&#x547D;&#x4EE4;&#x4F8B;&#x5982;&#x4EE5;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-shell">/usr/local/codis/bin/codis-config -h
+usage: codis-config  [-c &lt;config_file&gt;] [-L &lt;log_file&gt;] [--log-level=&lt;loglevel&gt;]
+        &lt;command&gt; [&lt;args&gt;...]
+options:
+   -c    set config file
+   -L    set output log file, default is stdout
+   --log-level=&lt;loglevel&gt;    set log level: info, warn, error, debug [default: info]
+
+commands:
+    server
+    slot
+    dashboard
+    action
+    proxy
+</code></pre>
+<p>(1)&#x542F;&#x52A8;dashboard&#xFF08;&#x5728;124&#x4E0A;&#x542F;&#x52A8;&#xFF09;</p>
+<pre><code class="lang-shell">#dashboard&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5939;&#x548C;&#x8A2A;&#x95EE;&#x6587;&#x4EF6;&#x5939;
+mkdir -p /data/codis/codis_dashboard/logs
+codis_home=/usr/local/codis
+log_path=/data/codis/codis_dashboard/logs
+nohup $codis_home/bin/codis-config -c $codis_home/conf/config.ini -L $log_path/dashboard.log dashboard --addr=:18087 --http-log=$log_path/requests.log &amp;&gt;/dev/null &amp;
+</code></pre>
+<p>&#x901A;&#x8FC7;10.80.80.124:18087&#x5C31;&#x53EF;&#x4EE5;&#x8A2A;&#x95EE;&#x56FE;&#x5F62;&#x7BA1;&#x7406;&#x754C;&#x9762;</p>
+<p>(2)&#x542F;&#x52A8;codis-server&#xFF08;&#x5728;3&#x53F0;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">/usr/local/codis/bin/codis-server /data/codis_server/conf/6380.conf
+/usr/local/codis/bin/codis-server /data/codis_server/conf/6381.conf
+</code></pre>
+<p>(3)&#x52A0;&#x5165; Redis Server Group&#xFF08;124&#x4E0A;&#xFF09;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x6BCF;&#x4E2A; Server Group &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A; Redis server&#x7EC4;&#x5B58;&#x5728;, &#x4EC5;&#x4EC5;&#x540C;&#x610F;&#x6709;&#x4E00;&#x4E2A; master, &#x80FD;&#x591F;&#x6709;&#x591A;&#x4E2A; slave, group id &#x4EC5;&#x652F;&#x6301;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;1&#x7684;&#x6574;&#x6570;
+&#x773C;&#x4E0B;&#x6211;&#x4EEC;&#x5728;3&#x53F0;server&#x4E0A;&#x5206;&#x4E86;3&#x7EC4;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x987B;&#x8981;&#x52A0;&#x5165;3&#x7EC4;&#x3002;&#x6BCF;&#x7EC4;&#x7531;&#x4E00;&#x4E3B;&#x4E00;&#x4ECE;&#x6784;&#x6210;</p>
+<pre><code class="lang-shell">#&#x76F8;&#x5173;&#x547D;&#x4EE4;    
+/usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini server
+usage:
+    codis-config server list
+    codis-config server add &lt;group_id&gt; &lt;redis_addr&gt; &lt;role&gt;
+    codis-config server remove &lt;group_id&gt; &lt;redis_addr&gt;
+    codis-config server promote &lt;group_id&gt; &lt;redis_addr&gt;
+    codis-config server add-group &lt;group_id&gt;
+    codis-config server remove-group &lt;group_id&gt;
+#group 1
+/usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini server add 1 10.80.80.124:6380 master
+/usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini server add 1 10.80.80.124:6381 slave
+#group 2
+/usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini server add 2 10.80.80.126:6380 master
+/usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini server add 2 10.80.80.126:6381 slave
+#group 3
+/usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini server add 3 10.80.80.123:6380 master
+/usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini server add 3 10.80.80.123:6381 slave
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;1.&#x70B9;&#x51FB;&#x201C;Promote to Master&#x201D;&#x5C31;&#x4F1A;&#x5C06;slave&#x7684;redis&#x63D0;&#x5347;&#x4E3A;master&#xFF0C;&#x800C;&#x539F;&#x6765;&#x7684;master&#x4F1A;&#x81EA;&#x5DF1;&#x4E3B;&#x52A8;&#x4E0B;&#x7EBF;&#x3002;</p>
+<p>2./usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini server add &#x80FD;&#x591F;&#x52A0;&#x5165;&#x673A;&#x5668;&#x5230;&#x5BF9;&#x5E94;&#x7EC4;&#x4E2D;&#x3002;&#x4E5F;&#x80FD;&#x591F;&#x66F4;&#x65B0;redis&#x7684;&#x4E3B;/&#x4ECE;&#x89D2;&#x8272;&#x3002;
+3.&#x82E5;&#x4E3A;&#x65B0;&#x673A;&#x5668;&#xFF0C;&#x6B64;&#x5904;&#x7684;keys&#x5E94;&#x8BE5;&#x4E3A;&#x7A7A;
+(4) &#x8BBE;&#x7F6E; server group &#x670D;&#x52A1;&#x7684; slot &#x8303;&#x56F4;&#xFF08;124&#x4E0A;&#xFF09;</p>
+<pre><code class="lang-shell">#&#x76F8;&#x5173;&#x547D;&#x4EE4;
+/usr/local/codis/bin/codis-config -c /usr/local/codis/conf/config.ini slot
+usage:
+    codis-config slot init [-f]
+    codis-config slot info &lt;slot_id&gt;
+    codis-config slot set &lt;slot_id&gt; &lt;group_id&gt; &lt;status&gt;
+    codis-config slot range-set &lt;slot_from&gt; &lt;slot_to&gt; &lt;group_id&gt; &lt;status&gt;
+    codis-config slot migrate &lt;slot_from&gt; &lt;slot_to&gt; &lt;group_id&gt; [--delay=&lt;delay_time_in_ms&gt;]
+    codis-config slot rebalance [--delay=&lt;delay_time_in_ms&gt;]
+
+#Codis &#x63A1;&#x7528; Pre-sharding &#x7684;&#x6280;&#x672F;&#x6765;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x7684;&#x5206;&#x7247;, &#x9ED8;&#x8BA4;&#x5206;&#x6210; 1024 &#x4E2A; slots (0-1023), &#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;key&#x6765;&#x8BF4;, &#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x516C;&#x5F0F;&#x786E;&#x5B9A;&#x6240;&#x5C5E;&#x7684; Slot Id : SlotId = crc32(key) % 1024 &#x6BCF;&#x4E2A; slot &#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684; server group id &#x6765;&#x8868;&#x793A;&#x8FD9;&#x4E2A; slot &#x7684;&#x6570;&#x636E;&#x7531;&#x54EA;&#x4E2A; server group &#x6765;&#x63D0;&#x4F9B;&#x3002;
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5728;&#x6B64;&#x5C06;1024&#x4E2A;slot&#x5206;&#x4E3A;&#x4E09;&#x6BB5;&#xFF0C;&#x5206;&#x914D;&#x4F8B;&#x5982;&#x4EE5;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-shell">/usr/local/codis/bin/codis-config -c conf/config.ini slot range-set 0 340 1 online /usr/local/codis/bin/codis-config -c conf/config.ini slot range-set 341 681 2 online /usr/local/codis/bin/codis-config -c conf/config.ini slot range-set 682 1023 3 online
+</code></pre>
+<p>(5)&#x542F;&#x52A8;codis-proxy&#xFF08;&#x5728;3&#x53F0;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF09;</p>
+<h1 id="codisproxy&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5939;">codis_proxy&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5939;</h1>
+<pre><code class="lang-shell">mkdir -p /data/codis/codis_proxy/logs
+codis_home=/usr/local/codis
+log_path=/data/codis/codis_proxy/logs
+nohup $codis_home/bin/codis-proxy --log-level warn -c $codis_home/conf/config.ini -L $log_path/codis_proxy_1.log  --cpu=8 --addr=0.0.0.0:19000 --http-addr=0.0.0.0:11000 &gt; $log_path/nohup.out 2&gt;&amp;1 &amp;
+</code></pre>
+<p>&#x9ED1;&#x7EBF;&#x5904;&#xFF1A;codis&#x8BFB;&#x53D6;server&#x7684;&#x4E3B;&#x673A;&#x540D;&#x3002;
+&#x6CE8;&#x610F;&#xFF1A;&#x82E5;client&#x76F8;&#x5173;&#x8A2A;&#x95EE;proxy&#xFF0C;&#x987B;&#x8981;&#x5728;client&#x52A0;&#x5165;hosts
+(6)&#x4E0A;&#x7EBF;codis-proxy</p>
+<pre><code class="lang-shell">codis_home=/usr/local/codis
+log_path=/data/codis/codis_proxy/logs
+nohup $codis_home/bin/codis-proxy --log-level warn -c $codis_home/conf/config.ini -L $log_path/codis_proxy_1.log  --cpu=8 --addr=0.0.0.0:19000 --http-addr=0.0.0.0:11000 &gt; $log_path/nohup.out 2&gt;&amp;1 &amp;
+</code></pre>
+<p>&#x6CE8;&#xFF1A;&#x542F;&#x52A8;codis_proxy&#x540E;&#x3002;proxy&#x6B64;&#x65F6;&#x5904;&#x4E8E;offline&#x72B6;&#x6001;&#x3002;&#x65E0;&#x6CD5;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF0C;&#x5FC5;&#x987B;&#x5C06;&#x5176;&#x4E0A;&#x7EBF;&#x540E;&#x624D;&#x5E72;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x3002;</p>
+<p>CRM&#x4E0E;codis&#x7684;&#x63A5;&#x5165;
+    1&#x3001;&#x539F;crm&#x7CFB;&#x7EDF;&#x901A;&#x8FC7;node_redis&#x5305;&#x8FDE;&#x63A5;redis&#xFF0C;&#x91C7;&#x7528;redis-cluster&#x96C6;&#x7FA4;&#x540E;&#xFF0C;&#x539F;&#x8FDE;&#x63A5;&#x4EE3;&#x7801;&#x65E0;&#x9700;&#x66F4;&#x6539;&#x3002;
+    2&#x3001;redis&#x96C6;&#x7FA4;&#x4E0D;&#x652F;&#x6301;&#x6D89;&#x53CA;&#x8DE8;key&#x7684;&#x4EA4;&#x96C6;&#x5E76;&#x96C6;&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x4E86;&#x89E3;&#x539F;&#x7CFB;&#x7EDF;&#x6D89;&#x53CA;redis&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x6709;&#x8DE8;key&#x7684;&#x4EA4;&#x5E76;&#x96C6;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x6709;&#xFF0C;&#x5E94;&#x8BC4;&#x4F30;&#x4FEE;&#x6539;&#x91CF;&#x7684;&#x5927;&#x5C0F;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#xFF08;&#x5347;&#x7EA7;&#x8BF7;&#x6559;&#xFF09;</p>
+<p>&#x53C2;&#x8003;&#x6587;&#x732E;&#xFF1A;
+1&#x3001;<a href="https://www.cnblogs.com/yuanermen/p/5717885.html" target="_blank">https://www.cnblogs.com/yuanermen/p/5717885.html</a>  //redis-cluster&#x5B89;&#x88C5;&#x90E8;&#x7F72;
+2&#x3001;<a href="https://www.cnblogs.com/softidea/p/5365640.html" target="_blank">https://www.cnblogs.com/softidea/p/5365640.html</a>  //codis&#x5B89;&#x88C5;&#x90E8;&#x7F72;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html" class="navigation navigation-prev " aria-label="Previous page: 大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="搭建github个人博客----免费、无限流量.html" class="navigation navigation-next " aria-label="Next page: 搭建github个人博客----免费、无限流量">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Redis集群化方案","level":"1.1.7","depth":2,"next":{"title":"搭建github个人博客----免费、无限流量","level":"1.1.8","depth":2,"path":"chapters/搭建github个人博客----免费、无限流量.md","ref":"chapters/搭建github个人博客----免费、无限流量.md","articles":[]},"previous":{"title":"大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理","level":"1.1.6","depth":2,"path":"chapters/大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.md","ref":"chapters/大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"KatherineLo","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"KatherineLo的文章","gitbook":"*"},"file":{"path":"chapters/Redis集群化方案.md","mtime":"2020-01-25T15:24:31.775Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-21T07:08:04.543Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
