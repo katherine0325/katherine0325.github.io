@@ -1,0 +1,994 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>如何创建一个VUE前端项目 · KatherineLo的文章</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="KatherineLo">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Node项目如何写覆盖率测试.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    文章列表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.1.1" data-path="如何创建一个VUE前端项目.html">
+            
+                <a href="如何创建一个VUE前端项目.html">
+            
+                    
+                    如何创建一个VUE前端项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="Node项目如何写覆盖率测试.html">
+            
+                <a href="Node项目如何写覆盖率测试.html">
+            
+                    
+                    Node项目如何写覆盖率测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="如何使用Okta验证登陆.html">
+            
+                <a href="如何使用Okta验证登陆.html">
+            
+                    
+                    如何使用Okta验证登陆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="Hapi如何单独为某个路由进行身份验证.html">
+            
+                <a href="Hapi如何单独为某个路由进行身份验证.html">
+            
+                    
+                    Hapi如何单独为某个路由进行身份验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="使用Spark进行流量日志分析.html">
+            
+                <a href="使用Spark进行流量日志分析.html">
+            
+                    
+                    使用Spark进行流量日志分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="工作风格.html">
+            
+                <a href="工作风格.html">
+            
+                    
+                    工作风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html">
+            
+                <a href="大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.html">
+            
+                    
+                    大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="Redis集群化方案.html">
+            
+                <a href="Redis集群化方案.html">
+            
+                    
+                    Redis集群化方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="搭建github个人博客----免费、无限流量.html">
+            
+                <a href="搭建github个人博客----免费、无限流量.html">
+            
+                    
+                    搭建github个人博客----免费、无限流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="一个最简版的项目.html">
+            
+                <a href="一个最简版的项目.html">
+            
+                    
+                    一个最简版的项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.11" data-path="日志系统设计.html">
+            
+                <a href="日志系统设计.html">
+            
+                    
+                    日志系统设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.12" data-path="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                <a href="阿里云部署nodejs+mongoDB傻瓜教程.html">
+            
+                    
+                    阿里云部署nodejs+mongoDB傻瓜教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.13" data-path="数据库设计.html">
+            
+                <a href="数据库设计.html">
+            
+                    
+                    数据库设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.14" data-path="系统设计之控制表--重复数据让我头很大.html">
+            
+                <a href="系统设计之控制表--重复数据让我头很大.html">
+            
+                    
+                    系统设计之控制表--重复数据让我头很大
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../contact.html">
+            
+                <a href="../contact.html">
+            
+                    
+                    联系方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >如何创建一个VUE前端项目</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h2>
+<p>&#x6211;&#x4EEC;&#x4EE5;&#x4E00;&#x4E2A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6280;&#x672F;&#x535A;&#x5BA2;&#x7F51;&#x7AD9;&#x4E3A;&#x4F8B;&#xFF0C;&#x8BF4;&#x660E;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;VUE&#x524D;&#x7AEF;&#x9879;&#x76EE;</p>
+<p>&#x4EE3;&#x7801;&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/katherine0325/tec-blog" target="_blank">https://github.com/katherine0325/tec-blog</a></p>
+<p>&#x6700;&#x7EC8;&#x6548;&#x679C;&#xFF1A;<a href="https://katherinelo.gitee.io/tec-blog/#/" target="_blank">https://katherinelo.gitee.io/tec-blog</a></p>
+<p>&#x6700;&#x7EC8;&#x6548;&#x679C;&#x622A;&#x56FE;&#xFF1A;</p>
+<p><img src="https://uploader.shimo.im/f/cVJ65wVPArNNcmq7.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<p><img src="https://uploader.shimo.im/f/oQwmVilPa2dzHgA0.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<h2 id="&#x4F7F;&#x7528;vue-cli&#x811A;&#x624B;&#x67B6;&#x521B;&#x5EFA;&#x9879;&#x76EE;">&#x4F7F;&#x7528;vue-cli&#x811A;&#x624B;&#x67B6;&#x521B;&#x5EFA;&#x9879;&#x76EE;</h2>
+<p>&#x9996;&#x5148;&#x5B89;&#x88C5;vue&#x811A;&#x624B;&#x67B6;</p>
+<pre><code class="lang-plain">npm install -g vue-cli
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x811A;&#x624B;&#x67B6;&#x521B;&#x5EFA;&#x9879;&#x76EE;</p>
+<pre><code class="lang-shell"># &#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x521B;&#x5EFA;&#x7684;&#x662F;webpack&#x7684;vue&#x9879;&#x76EE;&#xFF0C;&#x6240;&#x4EE5;init&#x540E;&#x9762;&#x8DDF;webpack
+# &#x9879;&#x76EE;&#x540D;&#x79F0;&#x6211;&#x4EEC;&#x5B9A;&#x4F4D; tec-blog
+vue init webpack tec-blog
+</code></pre>
+<p>&#x6267;&#x884C;&#x547D;&#x4EE4;&#x540E;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5168;&#x90E8;&#x76F4;&#x63A5;&#x56DE;&#x8F66;&#x6216;&#x8005;&#x9009;&#x62E9;Y&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;
+&#x7136;&#x540E;&#x6211;&#x4EEC;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x662F;&#x7531;&#x811A;&#x624B;&#x67B6;&#x5DF2;&#x7ECF;&#x751F;&#x6210;&#x597D;&#x7684;&#x4E00;&#x4E2A;vue&#x9879;&#x76EE;&#x7684;&#x57FA;&#x672C;&#x6846;&#x67B6;</p>
+<p><img src="https://uploader.shimo.im/f/dYrcGVXOm59D90Zo.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<p>&#x542F;&#x52A8;&#x9879;&#x76EE;</p>
+<pre><code class="lang-plain">npm start
+</code></pre>
+<p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;<a href="http://localhost:8080" target="_blank">http://localhost:8080</a>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x811A;&#x624B;&#x67B6;&#x7ED9;&#x6211;&#x4EEC;&#x751F;&#x6210;&#x7684;&#x57FA;&#x7840;&#x9879;&#x76EE;</p>
+<p><img src="https://uploader.shimo.im/f/yPxL9zXkFSqJAdV9.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<h2 id="&#x521B;&#x5EFA;&#x9875;&#x9762;&#x4EE5;&#x53CA;&#x6DFB;&#x52A0;&#x8DEF;&#x7531;">&#x521B;&#x5EFA;&#x9875;&#x9762;&#x4EE5;&#x53CA;&#x6DFB;&#x52A0;&#x8DEF;&#x7531;</h2>
+<p>&#x6211;&#x4EEC;&#x6253;&#x5F00;src&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x6211;&#x4EEC;&#x7F16;&#x7A0B;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#xFF0C;&#x539F;&#x672C;&#x662F;&#x8FD9;&#x6837;&#x7684;</p>
+<p><img src="https://uploader.shimo.im/f/SVJPkgcBqZIgZQPA.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;pages&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x91CC;&#x9762;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;home&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6587;&#x4EF6;&#x5939;&#x91CC;&#x9762;&#x518D;&#x521B;&#x5EFA;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;Home.vue/home.css/home.js</p>
+<p>&#x8FD9;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#x5206;&#x522B;&#x653E;&#x7F6E;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x5C42;html&#xFF0C;css&#x548C;&#x903B;&#x8F91;&#x5C42;js</p>
+<p>Home.vue</p>
+<pre><code class="lang-plain">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script src=&quot;./home.js&quot;&gt;&lt;/script&gt;
+&lt;style scoped src=&quot;./home.css&quot;&gt;&lt;/style&gt;
+</code></pre>
+<p>home.css</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#41B883</span>;
+}
+</code></pre>
+<p>home.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  name: <span class="hljs-string">&apos;Home&apos;</span>,
+  components: {
+  },
+  data () {
+    <span class="hljs-keyword">return</span> {
+      title: <span class="hljs-string">&apos;Home page&apos;</span>
+    }
+  },
+  mounted () {
+  },
+  methods: {
+  }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x628A;Home&#x9875;&#x9762;&#x63A5;&#x5165;&#x8DEF;&#x7531;</p>
+<p>router/index.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
+Vue.use(Router)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
+  routes: [
+    {
+      path: <span class="hljs-string">&apos;/&apos;</span>,
+      name: <span class="hljs-string">&apos;Home&apos;</span>,
+      component: () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;@/pages/home/Home.vue&apos;</span>)
+    }
+  ]
+})
+</code></pre>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x4E0D;&#x6A21;&#x4EFF;&#x539F;&#x6709;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5728;&#x9876;&#x90E8;&#x901A;&#x8FC7; import Home from &apos;@/pages/home/Home.vue&apos; &#x76F4;&#x63A5;&#x5F15;&#x5165;home&#x9875;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x653E;&#x5728;&#x8DEF;&#x7531;&#x7684;component&#x91CC;&#x9762;&#x3002;&#x800C;&#x662F;&#x4F7F;&#x7528;&#x4E86;&#x5982;&#x4E0A;&#x5199;&#x6CD5;&#x5462;</p>
+<blockquote>
+<p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;webpack&#x6253;&#x5305;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x7684;JS&#x4EE3;&#x7801;&#x6253;&#x5165;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x5DE5;&#x7A0B;&#x7279;&#x522B;&#x5927;&#xFF0C;&#x4F9D;&#x8D56;&#x7684;&#x5185;&#x5BB9;&#x7279;&#x522B;&#x591A;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x8BE5;&#x6587;&#x4EF6;&#x7279;&#x522B;&#x7684;&#x5927;&#xFF0C;&#x800C;&#x5927;&#x6587;&#x4EF6;&#x52A0;&#x8F7D;&#x4F1A;&#x5BFC;&#x81F4;&#x6027;&#x80FD;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x7684;&#x597D;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5C06;&#x91CD;&#x91CF;&#x7EA7;&#x8DEF;&#x7531;&#x5185;&#x5BB9;&#x5355;&#x72EC;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;js&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5168;&#x90E8;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5F53;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x8DEF;&#x7531;&#x8BBF;&#x95EE;&#x65F6;&#x518D;&#x53BB;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x3002;
+&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4F1A;&#x4F7F;&#x7528;&#x5982;&#x4E0A;&#x5199;&#x6CD5;&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x9875;&#x9762;&#x6309;&#x9700;&#x52A0;&#x8F7D;&#x4EE5;&#x5B9E;&#x73B0;&#x4E0A;&#x8FF0;&#x76EE;&#x7684;&#x3002;</p>
+</blockquote>
+</blockquote>
+<p>&#x6211;&#x4EEC;&#x5237;&#x65B0;&#x7F51;&#x9875; localhost:8080&#xFF08;&#x6216;&#x8005;&#x5B83;&#x5176;&#x5B9E;&#x5DF2;&#x7ECF;&#x81EA;&#x52A8;&#x5237;&#x65B0;&#x4E86;&#xFF09;</p>
+<p><img src="https://uploader.shimo.im/f/mMvvpRXo1vdFHW7c.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x9664;&#x4E86;&#x539F;&#x6709;&#x5168;&#x5C40;&#x7684;vue logo&#x4E4B;&#x524D;&#xFF0C;&#x9875;&#x9762;&#x5185;&#x90E8;&#x5C31;&#x53EA;&#x5269;&#x4E0B;&#x6211;&#x4EEC;&#x521A;&#x624D;&#x6DFB;&#x52A0;&#x7684;home page&#x9875;&#x9762;&#x4E86;</p>
+<h2 id="&#x5168;&#x5C40;ui">&#x5168;&#x5C40;UI</h2>
+<p>&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;app.vue&#xFF0C;&#x4F7F;&#x5F97;&#x6280;&#x672F;&#x535A;&#x5BA2;&#x7684;&#x5168;&#x5C40;UI&#x66F4;&#x4E3A;&#x6CA1;&#x5173;</p>
+<p>src/app.vue</p>
+<pre><code class="lang-plain">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;div class=&quot;dark&quot;&gt;
+        &lt;h1&gt;Katherine&#x7684;&#x6280;&#x672F;&#x535A;&#x5BA2;&lt;/h1&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;section&quot;&gt;
+      &lt;div class=&quot;main&quot;&gt;
+        &lt;router-view/&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: &apos;App&apos;
+}
+&lt;/script&gt;
+&lt;style&gt;
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  height: 300px;
+  background-image: linear-gradient(135deg,#79f1a4,#0e5cad);
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+}
+.header .dark {
+  margin: 0 auto;
+  width: 800px;
+  height: 150px;
+  background-color: rgba(8,105,132,.52);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.header .dark h1 {
+  line-height: 120px;
+  display: block;
+  font-size: 2.4em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+  color: #a9e4f5;
+}
+.section {
+  background-color: #f7f8fa;
+  padding-bottom: 60px;
+}
+.section .main {
+  margin: 0 auto;
+  width: 800px;
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+&lt;/style&gt;
+</code></pre>
+<p>&#x6D4F;&#x89C8;&#x5668;&#xFF1A;</p>
+<p><img src="https://uploader.shimo.im/f/BAVjGv86VDRrO5os.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<p>vue&#x7EC4;&#x4EF6;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x4F7F;&#x7528;</p>
+<p>&#x9996;&#x9875;&#x6211;&#x4EEC;&#x6253;&#x7B97;&#x73B0;&#x5B9E;&#x6587;&#x7AE0;&#x5217;&#x8868;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x680F;&#x5148;&#x5217;&#x4E00;&#x6761;&#x4F2A;&#x6570;&#x636E;&#xFF0C;&#x65B9;&#x4FBF;&#x521B;&#x5EFA;UI&#x7EC4;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x663E;&#x793A;</p>
+<p>@/pages/home/home.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  name: <span class="hljs-string">&apos;Home&apos;</span>,
+  components: {
+  },
+  data () {
+    <span class="hljs-keyword">return</span> {
+      title: <span class="hljs-string">&apos;Home page&apos;</span>,
+      list: [
+        {
+          title: <span class="hljs-string">&apos;&#x6587;&#x7AE0;&#x6807;&#x9898;&#x4E00;&apos;</span>,
+          created_at: <span class="hljs-string">&apos;2020-04&apos;</span>
+        },
+        {
+          title: <span class="hljs-string">&apos;&#x6587;&#x7AE0;&#x6807;&#x9898;&#x4E8C;&apos;</span>,
+          created_at: <span class="hljs-string">&apos;2020-03&apos;</span>
+        }
+      ]
+    }
+  },
+  mounted () {
+  },
+  methods: {
+  }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x5728;components&#x91CC;&#x521B;&#x5EFA;ArticleLine.vue&#x7EC4;&#x4EF6;</p>
+<p>@/components/ArticleLine.vue</p>
+<pre><code class="lang-plain">&lt;template&gt;
+  &lt;div class=&quot;article-line&quot;&gt;
+    &lt;div class=&quot;number&quot;&gt;{{number}}&lt;/div&gt;
+    &lt;div class=&quot;title&quot;&gt;{{title}}&lt;/div&gt;
+    &lt;div class=&quot;date&quot;&gt;{{date}}&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: &apos;ArticleLine&apos;,
+  props: [&apos;number&apos;, &apos;title&apos;, &apos;date&apos;],
+  data () {
+    return {
+    }
+  }
+}
+&lt;/script&gt;
+&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;
+&lt;style scoped&gt;
+.article-line {
+  padding: 30px 15px;
+  border-bottom: 1px solid #f5f5f5;
+  display: grid;
+  grid-template-columns: 50px auto 100px;
+  align-items: center;
+}
+.number {
+  flex-basis: 80px;
+  text-align: center;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-weight: 700;
+  color: rgba(11, 96, 119, 0.52);
+  font-size: 17px;
+}
+.title {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #444;
+  font-size: 16px;
+}
+.date {
+  font-size: 13px;
+  font-weight: 500;
+  color: #87878a;
+  line-height: 1.2;
+}
+&lt;/style&gt;
+</code></pre>
+<p>&#x5728;home&#x4E2D;&#x5F15;&#x7528;&#x8BE5;&#x7EC4;&#x4EF6;</p>
+<p>@/pages/home/home.js</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5F15;&#x5165;&#x7EC4;&#x4EF6;</span>
+<span class="hljs-keyword">import</span> ArticleLine <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/ArticleLine&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  name: <span class="hljs-string">&apos;Home&apos;</span>,
+  components: {
+    <span class="hljs-comment">// &#x653E;&#x7F6E;&#x5728;components&#x5F53;&#x4E2D;</span>
+    ArticleLine
+  },
+  data () {
+    <span class="hljs-keyword">return</span> {
+      list: [
+        {
+          title: <span class="hljs-string">&apos;&#x6587;&#x7AE0;&#x6807;&#x9898;&#x4E00;&apos;</span>,
+          created_at: <span class="hljs-string">&apos;2020-04&apos;</span>
+        },
+        {
+          title: <span class="hljs-string">&apos;&#x6587;&#x7AE0;&#x6807;&#x9898;&#x4E8C;&apos;</span>,
+          created_at: <span class="hljs-string">&apos;2020-03&apos;</span>
+        }
+      ]
+    }
+  },
+  mounted () {
+  },
+  methods: {
+  }
+}
+</code></pre>
+<p>@/pages/home/Home.vue</p>
+<pre><code class="lang-plain">&lt;template&gt;
+  &lt;div&gt;
+    &lt;article-line  v-for=&quot;(item, index) in list&quot; :key=&quot;item.id&quot; :number=&quot;index + 1&quot; :title=&quot;item.title&quot; :date=&quot;item.created_at&quot;&gt;&lt;/article-line&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script src=&quot;./home.js&quot;&gt;&lt;/script&gt;
+&lt;style scoped src=&quot;./home.css&quot;&gt;&lt;/style&gt;
+</code></pre>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x7EC4;&#x4EF6;ArticleLine&#x662F;&#x9A7C;&#x5CF0;&#x5199;&#x6CD5;&#xFF0C;&#x5728;Home.vue&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;-&#x5199;&#x6CD5;</p>
+<blockquote>
+<p>v-for &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5FAA;&#x73AF;&#x529F;&#x80FD;&#xFF0C;&#x4F7F;&#x5F97;&#x7EC4;&#x4EF6;&#x6839;&#x636E;&#x6570;&#x636E;&#x6570;&#x636E;&#x4E00;&#x6B21;&#x5C55;&#x5F00;
+:key &#x4E3A;for&#x65B9;&#x6CD5;&#x4E2D;&#x6807;&#x8BB0;&#x7EC4;&#x4EF6;&#x552F;&#x4E00;key
+:number :title :date &#x5BF9;&#x5E94;&#x521A;&#x624D;&#x6211;&#x4EEC;&#x4E3A;&#x7EC4;&#x4EF6;&#x521B;&#x5EFA;&#x7684;&#x5C5E;&#x6027;
+&#x4E0E;&#x6B64;&#x540C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x521A;&#x624D;&#x4E3A;&#x4E86;&#x6807;&#x8BB0;&#x9875;&#x9762;&#x7684;title &#x5B57;&#x6837; home page&#x7ED9;&#x5220;&#x9664;&#x4E86;</p>
+</blockquote>
+</blockquote>
+<p><img src="https://uploader.shimo.im/f/Vx3Ks8zNXsy3TyOg.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<h2 id="&#x52A0;&#x8F7D;api&#x6570;&#x636E;">&#x52A0;&#x8F7D;API&#x6570;&#x636E;</h2>
+<p>&#x8FD9;&#x91CC;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x6211;&#x539F;&#x6709;&#x7684;&#x6280;&#x672F;&#x535A;&#x5BA2;&#x7684;api</p>
+<pre><code class="lang-plain">https://api.github.com/repos/katherine0325/katherine0325.github.io/issues
+</code></pre>
+<p><img src="https://uploader.shimo.im/f/tqhw6ZiT084AeaOx.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<p>&#x90A3;&#x540C;&#x6837;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x5728;src&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;api&#x76EE;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x521B;&#x5EFA;get-article-list.js&#x6587;&#x4EF6;</p>
+<p>@/pages/api/get-article-list.js</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// axios&#x662F;&#x4E00;&#x4E2A;&#x65B9;&#x4FBF;&#x7528;&#x4E8E;&#x8FDB;&#x884C;http&#x8BF7;&#x6C42;&#x7684;npm&#x5305;&#xFF0C;&#x9879;&#x76EE;&#x4E2D;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x5305;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; npm install axios --save &#x5B89;&#x88C5;</span>
+<span class="hljs-keyword">import</span> Axios <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;axios&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getArticleList = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> Axios.get(<span class="hljs-string">&apos;https://api.github.com/repos/katherine0325/katherine0325.github.io/issues&apos;</span>)
+  <span class="hljs-keyword">return</span> result.data
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x5728;api&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;index.js&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;api&#x96C6;&#x4E2D;&#x5F00;&#x653E;&#x5BFC;&#x51FA;</p>
+<p>@/api/index.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { getArticleList } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./get-article-list&apos;</span>
+<span class="hljs-keyword">export</span> {
+  getArticleList
+}
+</code></pre>
+<p>@/pages/home/home.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> ArticleLine <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/ArticleLine&apos;</span>
+<span class="hljs-comment">// &#x5C06; getArticleList &#x65B9;&#x6CD5;&#x5F15;&#x5165;</span>
+<span class="hljs-keyword">import</span> { getArticleList } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/api&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  name: <span class="hljs-string">&apos;Home&apos;</span>,
+  components: {
+    ArticleLine
+  },
+  data () {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-comment">// &#x5C06;list&#x539F;&#x6709;&#x7684;&#x4F2A;&#x6570;&#x636E;&#x5168;&#x90E8;&#x6E05;&#x7A7A;&#xFF0C;&#x7559;&#x4E0B;&#x4E00;&#x4E2A;&#x7A7A;&#x6570;&#x7EC4;</span>
+      list: []
+    }
+  },
+  <span class="hljs-comment">// mounted&#x662F;vue&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#x540E;&#x6267;&#x884C;js&#x7684;&#x4E00;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x521D;&#x59CB;&#x5316;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x8FDB;&#x884C;</span>
+  mounted () {
+    <span class="hljs-comment">// &#x4F7F;&#x7528;init&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF08;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C06;&#x5728;methods&#x4E2D;&#x5199;&#x5177;&#x4F53;&#xFF09;</span>
+    <span class="hljs-keyword">this</span>.init()
+  },
+  methods: {
+    <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;</span>
+    <span class="hljs-keyword">async</span> init () {
+      <span class="hljs-comment">// &#x83B7;&#x53D6;&#x6587;&#x7AE0;&#x5217;&#x8868;&#x6570;&#x636E;</span>
+      <span class="hljs-keyword">const</span> list = <span class="hljs-keyword">await</span> getArticleList()
+      <span class="hljs-comment">// &#x5C06;&#x6570;&#x636E;&#x8D4B;&#x503C;&#x7ED9;data&#x7684;list</span>
+      <span class="hljs-keyword">this</span>.list = list
+    }
+  }
+}
+</code></pre>
+<p>&#x518D;&#x6B21;&#x67E5;&#x770B;&#x7F51;&#x9875;</p>
+<p><img src="https://uploader.shimo.im/f/ZpJbopyB6XWHN5Fm.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<h2 id="&#x65B0;&#x589E;&#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x9875;">&#x65B0;&#x589E;&#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x9875;</h2>
+<p>api</p>
+<pre><code class="lang-plain">https://api.github.com/repos/katherine0325/katherine0325.github.io/issues/32
+</code></pre>
+<p><img src="https://uploader.shimo.im/f/bVUmeLjCTSadGgsM.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<p>&#x65B0;&#x589E;article&#x9875;&#x9762;</p>
+<p>@/pages/article/Article.vue</p>
+<pre><code class="lang-plain">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;{{title}}&lt;/h2&gt;
+    &lt;!-- v-html&#x662F;&#x5C06;html&#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6E32;&#x67D3;&#x5230;vue&#x7684;&#x65B9;&#x6CD5; --&gt;
+    &lt;div class=&quot;html&quot; v-html=&quot;articleHtml&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script src=&quot;./article.js&quot;&gt;&lt;/script&gt;
+&lt;style scoped src=&quot;./article.css&quot;&gt;&lt;/style&gt;
+</code></pre>
+<p>@/pages/article/article.css</p>
+<pre><code class="lang-plain">h2 {
+  text-align: center;
+  line-height: 4;
+}
+.html {
+  padding: 24px;
+  padding-top: 0;
+}
+/* &#x8FD9;&#x91CC;&#x7684;&gt;&gt;&gt;&#x662F;&#x56E0;&#x4E3A;v-html&#x4E2D;&#x7684;&#x6807;&#x7B7E;&#x65E0;&#x6CD5;&#x7B80;&#x5355;&#x7684;&#x5199;&#x5B83;&#x7684;css&#xFF0C;&#x53EA;&#x6709;&#x52A0;&#x4E0A;&gt;&gt;&gt;&#x6DF1;&#x5EA6;&#x624D;&#x80FD;&#x5B9E;&#x73B0; */
+.html &gt;&gt;&gt; img {
+  width: 100%;
+}
+</code></pre>
+<p>@/pages/article/article.js</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// marked&#x5305;&#x7528;&#x4E8E;&#x5C06;markdown&#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;html&#x683C;&#x5F0F;&#xFF0C;&#x9879;&#x76EE;&#x4E2D;&#x539F;&#x672C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x5305;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; `npm install marked --save` &#x5B89;&#x88C5;</span>
+<span class="hljs-keyword">import</span> marked <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;marked&apos;</span>
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x6587;&#x7AE0;&#x8BE6;&#x60C5;api</span>
+<span class="hljs-keyword">import</span> { getArticle } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/api&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  name: <span class="hljs-string">&apos;Article&apos;</span>,
+  data () {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-comment">// &#x6587;&#x7AE0;&#x6807;&#x9898;</span>
+      title: <span class="hljs-string">&apos;&apos;</span>,
+      <span class="hljs-comment">// &#x6587;&#x7AE0;&#x8BE6;&#x60C5;</span>
+      articleHtml: <span class="hljs-string">&apos;&lt;div&gt;&lt;/div&gt;&apos;</span>
+    }
+  },
+  mounted () {
+    <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;</span>
+    <span class="hljs-keyword">this</span>.init()
+  },
+  methods: {
+    <span class="hljs-keyword">async</span> init () {
+      <span class="hljs-comment">// &#x6839;&#x636E;api&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6587;&#x7AE0;&#x7F16;&#x53F7;&#x83B7;&#x53D6;&#xFF0C;&#x6587;&#x7AE0;&#x7F16;&#x53F7;&#x9700;&#x8981;&#x4ECE;&#x5217;&#x8868;&#x9875;&#x70B9;&#x51FB;&#x6587;&#x7AE0;&#x6807;&#x9898;&#xFF0C;&#x901A;&#x8FC7;url&#x4F20;&#x9001;&#x8FC7;&#x6765;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5C06;&#x8FD9;&#x4E2A;query&#x7684;key name&#x5B9A;&#x4F4D; article_number&#xFF0C;&#x83B7;&#x53D6;&#x65B9;&#x5F0F;&#x662F; this.$router.query</span>
+      <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> getArticle(<span class="hljs-keyword">this</span>.$route.query.article_number)
+      <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5230;&#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x540E; result.body &#x662F;&#x4E00;&#x4E32;markdown&#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x901A;&#x8FC7;marked&#x5305;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6587;html&#x683C;&#x5F0F;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;&#x7ED9;data&#x7684;articleHtml</span>
+      <span class="hljs-keyword">this</span>.articleHtml = marked(result.body)
+      <span class="hljs-comment">// &#x5C06;title&#x8D4B;&#x503C;&#x7ED9;title</span>
+      <span class="hljs-keyword">this</span>.title = result.title
+    }
+  }
+}
+</code></pre>
+<p>@/api/get-article.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Axios <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;axios&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getArticle = <span class="hljs-keyword">async</span> (articleNumber) =&gt; {
+  <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> Axios.get(<span class="hljs-string">`https://api.github.com/repos/katherine0325/katherine0325.github.io/issues/<span class="hljs-subst">${articleNumber}</span>`</span>)
+  <span class="hljs-keyword">return</span> result.data
+}
+</code></pre>
+<p>@/api/index.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { getArticleList } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./get-article-list&apos;</span>
+<span class="hljs-keyword">import</span> { getArticle } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./get-article&apos;</span>
+<span class="hljs-keyword">export</span> {
+  getArticleList,
+  getArticle
+}
+</code></pre>
+<p>&#x6DFB;&#x52A0;&#x5230;&#x8DEF;&#x7531;</p>
+<p>@/router/index.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
+Vue.use(Router)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
+  routes: [
+    {
+      path: <span class="hljs-string">&apos;/&apos;</span>,
+      name: <span class="hljs-string">&apos;Home&apos;</span>,
+      component: () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;@/pages/home/Home.vue&apos;</span>)
+    },
+    {
+      path: <span class="hljs-string">&apos;/article&apos;</span>,
+      name: <span class="hljs-string">&apos;Article&apos;</span>,
+      component: () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;@/pages/article/Article.vue&apos;</span>)
+    }
+  ]
+})
+</code></pre>
+<p>&#x4FEE;&#x6539;home&#x9875;&#x9762;&#xFF0C;&#x4F7F;&#x5F97;&#x4ECE;home&#x9875;&#x9762;&#x8DF3;&#x8F6C;&#x5230;artile&#x9875;&#x9762;&#xFF0C;&#x4EE5;&#x53CA;home&#x9875;&#x9762;&#x76F8;&#x5173;&#x53D8;&#x66F4;&#x7684;css</p>
+<p>@/pages/home/Home.vue</p>
+<pre><code class="lang-plain">&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- router-link &#x662F;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5185;&#x8DF3;&#x8F6C;&#x529F;&#x80FD;&#x7EC4;&#x4EF6;&#xFF0C;:to&#x540E;&#x9762;&#x4F7F;&#x7528;json&#x683C;&#x5F0F;&#xFF0C;path&#x4E3A;&#x9875;&#x9762;&#x5730;&#x5740;&#xFF0C;query&#x4E3A;&#x9875;&#x9762;&#x53C2;&#x6570;&#xFF08;&#x8FD9;&#x91CC;&#x5305;&#x542B;&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x8BF4;&#x5230;&#x7684;&#x53C2;&#x6570;key name&#x5B9A;&#x4E3A;article_number&#xFF09; --&gt;
+    &lt;!-- &#x7136;&#x540E;&#x4E5F;&#x5C06; v-for &#x548C; :key &#x642C;&#x5230;&#x8FD9;&#x4E00;&#x5C42;&#x6765;&#x4E86;&#xFF0C;&#x4F7F;&#x5F97;&#x6BCF;&#x4E2A;&#x6587;&#x7AE0;&#x6807;&#x9898;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x8DF3;&#x8F6C; --&gt;
+    &lt;router-link :to=&quot;{path: &apos;/article&apos;, query: {article_number: item.number}}&quot; v-for=&quot;(item, index) in list&quot; :key=&quot;item.id&quot;&gt;
+      &lt;!-- &#x7531;&#x4E8E;api&#x7684;&#x4E8B;&#x4EF6;&#x53C2;&#x6570;&#x7684;&#x683C;&#x5F0F;&#x5185;&#x5BB9;&#x7CBE;&#x786E;&#x5230;&#x4E86;&#x65F6;&#x5206;&#x79D2;&#x8FC7;&#x957F;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x65E5;&#x671F;&#x5C31;&#x591F;&#x4E86;&#xFF0C;&#x4E8E;&#x662F;&#x8FD9;&#x91CC;&#x4FEE;&#x6539;&#x4E86;&#x4E00;&#x4E0B;&#x53D6;&#x5B83;&#x524D;&#x51E0;&#x4F4D;&#x7684;&#x65E5;&#x671F;&#x5373;&#x53EF;(.slice(0, 10)) --&gt;
+      &lt;article-line :number=&quot;index + 1&quot; :title=&quot;item.title&quot; :date=&quot;item.created_at.slice(0, 10)&quot;&gt;&lt;/article-line&gt;
+    &lt;/router-link&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script src=&quot;./home.js&quot;&gt;&lt;/script&gt;
+&lt;style scoped src=&quot;./home.css&quot;&gt;&lt;/style&gt;
+</code></pre>
+<p>@/pages/home/home.css</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">a</span> {
+  <span class="hljs-attribute">text-decoration</span>: none;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#444</span>;
+}
+</code></pre>
+<p>&#x67E5;&#x770B;&#x9875;&#x9762;&#xFF0C;&#x70B9;&#x51FB;&#x6587;&#x7AE0;&#x6807;&#x9898;&#x8FDB;&#x5165;&#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x9875;</p>
+<p><img src="https://uploader.shimo.im/f/LpBvnPmRnBRVzs8F.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<p><img src="https://uploader.shimo.im/f/Gx3J6jnPcd3wV2xS.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<h2 id="&#x4F7F;&#x7528;antd-vue&#x521B;&#x5EFA;loading&#x5168;&#x5C40;&#x65B9;&#x6CD5;">&#x4F7F;&#x7528;antd-vue&#x521B;&#x5EFA;loading&#x5168;&#x5C40;&#x65B9;&#x6CD5;</h2>
+<p>antd-vue&#x662F;&#x4E00;&#x4E2A;ui&#x6846;&#x67B6;&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x5728;&#x9879;&#x76EE;&#x5185;&#x90E8;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5E93;&#x91CC;&#x7684;&#x7EC4;&#x4EF6;&#x3002;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x8BE6;&#x89C1;&#xFF1A;<a href="https://www.antdv.com/docs/vue/introduce-cn/" target="_blank">https://www.antdv.com/docs/vue/introduce-cn/</a></p>
+<p>&#x5B89;&#x88C5;antd-vue</p>
+<pre><code class="lang-plain">npm install ant-design-vue --save
+</code></pre>
+<p>&#x5728;main.js&#x4E2D;&#x6DFB;&#x52A0;antd-vue&#x7684;&#x4F7F;&#x7528;</p>
+<p>@/main.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./App&apos;</span>
+<span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./router&apos;</span>
+<span class="hljs-comment">// &#x5F15;&#x5165;antd</span>
+<span class="hljs-keyword">import</span> Antd <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ant-design-vue&apos;</span>
+<span class="hljs-comment">// &#x5F15;&#x5165;antd&#x7684;css</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ant-design-vue/dist/antd.css&apos;</span>
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+<span class="hljs-comment">// &#x4F7F;&#x7528;vue use antd</span>
+Vue.use(Antd)
+<span class="hljs-comment">/* eslint-disable no-new */</span>
+<span class="hljs-keyword">new</span> Vue({
+  el: <span class="hljs-string">&apos;#app&apos;</span>,
+  router,
+  components: { App },
+  template: <span class="hljs-string">&apos;&lt;App/&gt;&apos;</span>
+})
+</code></pre>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;lib&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;lading.js&#x6587;&#x4EF6;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;Loading class</span>
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Loading</span> </span>{
+  <span class="hljs-comment">// &#x9759;&#x6001;&#x65B9;&#x6CD5;show&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x5168;&#x5C40;&#x8303;&#x56F4;&#x5185;&#xFF0C;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x73B0;&#x5B9E;&#x52A0;&#x8F7D;&#x4E2D;&#x5B57;&#x6837;</span>
+  <span class="hljs-comment">// &#x901A;&#x8FC7;antd-vue&#x7EC4;&#x4EF6;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x7F51;&#x7AD9;&#x4E0A;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x9700;&#x8981;&#x5168;&#x5C40;&#x4F7F;&#x7528;loading&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5199; this.$message.loading(&apos;string&apos;, 0)&#xFF0C;&#x8FD9;&#x91CC;&#x7684;show&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x8131;&#x79BB;&#x9875;&#x9762;js&#x6587;&#x4EF6;&#x6307;&#x5F15;&#x7684;this&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x4F7F;&#x7528;event&#x4F20;&#x5165;&#x8FDB;&#x6765;</span>
+  <span class="hljs-keyword">static</span> show (event) {
+    <span class="hljs-keyword">this</span>.loading = event.$message.loading(<span class="hljs-string">&apos;&#x52A0;&#x8F7D;&#x4E2D;...&apos;</span>, <span class="hljs-number">0</span>)
+  }
+  <span class="hljs-comment">// &#x9759;&#x6001;&#x65B9;&#x6CD5;hide&#xFF0C;&#x7528;&#x4E8E;&#x5C06;&#x5168;&#x5C40;loading&#x7EC4;&#x4EF6;&#x6E05;&#x9664;</span>
+  <span class="hljs-comment">// &#x6839;&#x636E;&#x901A;&#x8FC7;antd-vue&#x7F51;&#x7AD9;&#xFF0C;&#x6E05;&#x9664;&#x65B9;&#x5F0F;&#x4E3A; setTimeout(loading, 0)</span>
+  <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5728;show&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06;loading&#x8D4B;&#x503C;&#x7ED9;&#x4E86;this.loading&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5728;hide&#x65B9;&#x6CD5;&#x4E2D;&#x5C31;&#x5C06;&#x5B83;&#x6E05;&#x9664;</span>
+  <span class="hljs-keyword">static</span> hide () {
+    setTimeout(<span class="hljs-keyword">this</span>.loading, <span class="hljs-number">0</span>)
+  }
+}
+</code></pre>
+<p>&#x5728;home init&#x4E2D;&#x4F7F;&#x7528;</p>
+<p>@/pages/home/home.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> ArticleLine <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/components/ArticleLine&apos;</span>
+<span class="hljs-keyword">import</span> { getArticleList } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/api&apos;</span>
+<span class="hljs-comment">// &#x5F15;&#x5165;loading</span>
+<span class="hljs-keyword">import</span> { Loading } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/lib/loading&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  name: <span class="hljs-string">&apos;Home&apos;</span>,
+  components: {
+    ArticleLine
+  },
+  data () {
+    <span class="hljs-keyword">return</span> {
+      list: []
+    }
+  },
+  mounted () {
+    <span class="hljs-keyword">this</span>.init()
+  },
+  methods: {
+    <span class="hljs-keyword">async</span> init () {
+      <span class="hljs-comment">// Loading.show&#x65B9;&#x6CD5;&#x663E;&#x793A;loading&#xFF0C;&#x4F20;&#x5165;&#x53C2;&#x6570;this</span>
+      Loading.show(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">const</span> list = <span class="hljs-keyword">await</span> getArticleList()
+      <span class="hljs-keyword">this</span>.list = list
+      <span class="hljs-comment">// &#x6570;&#x636E;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x540E;&#xFF0C;Loading.hide&#x65B9;&#x6CD5;&#x6E05;&#x9664;loading</span>
+      Loading.hide()
+    }
+  }
+}
+</code></pre>
+<p>&#x540C;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5728;article init&#x4E2D;&#x4F7F;&#x7528;</p>
+<p>@/pages/article/article.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> marked <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;marked&apos;</span>
+<span class="hljs-keyword">import</span> { getArticle } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/api&apos;</span>
+<span class="hljs-keyword">import</span> { Loading } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/lib/loading&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  name: <span class="hljs-string">&apos;Article&apos;</span>,
+  data () {
+    <span class="hljs-keyword">return</span> {
+      title: <span class="hljs-string">&apos;&apos;</span>,
+      articleHtml: <span class="hljs-string">&apos;&lt;div&gt;&lt;/div&gt;&apos;</span>
+    }
+  },
+  mounted () {
+    <span class="hljs-keyword">this</span>.init()
+  },
+  methods: {
+    <span class="hljs-keyword">async</span> init () {
+      Loading.show(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> getArticle(<span class="hljs-keyword">this</span>.$route.query.article_number)
+      <span class="hljs-keyword">this</span>.articleHtml = marked(result.body)
+      <span class="hljs-keyword">this</span>.title = result.title
+      Loading.hide()
+    }
+  }
+}
+</code></pre>
+<p>&#x67E5;&#x770B;&#x6548;&#x679C;</p>
+<p><img src="https://uploader.shimo.im/f/Se1ALB1r5Kf8cdab.png!thumbnail?fileGuid=9PDrdWJJJPckGGpg" alt="&#x56FE;&#x7247;"></p>
+<h2 id="end">END</h2>
+<p>&#x5168;&#x90E8;&#x5B8C;&#x6210;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 文章列表">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Node项目如何写覆盖率测试.html" class="navigation navigation-next " aria-label="Next page: Node项目如何写覆盖率测试">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"如何创建一个VUE前端项目","level":"1.1.1","depth":2,"next":{"title":"Node项目如何写覆盖率测试","level":"1.1.2","depth":2,"path":"chapters/Node项目如何写覆盖率测试.md","ref":"chapters/Node项目如何写覆盖率测试.md","articles":[]},"previous":{"title":"文章列表","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"如何创建一个VUE前端项目","level":"1.1.1","depth":2,"path":"chapters/如何创建一个VUE前端项目.md","ref":"chapters/如何创建一个VUE前端项目.md","articles":[]},{"title":"Node项目如何写覆盖率测试","level":"1.1.2","depth":2,"path":"chapters/Node项目如何写覆盖率测试.md","ref":"chapters/Node项目如何写覆盖率测试.md","articles":[]},{"title":"如何使用Okta验证登陆","level":"1.1.3","depth":2,"path":"chapters/如何使用Okta验证登陆.md","ref":"chapters/如何使用Okta验证登陆.md","articles":[]},{"title":"Hapi如何单独为某个路由进行身份验证","level":"1.1.4","depth":2,"path":"chapters/Hapi如何单独为某个路由进行身份验证.md","ref":"chapters/Hapi如何单独为某个路由进行身份验证.md","articles":[]},{"title":"使用Spark进行流量日志分析","level":"1.1.5","depth":2,"path":"chapters/使用Spark进行流量日志分析.md","ref":"chapters/使用Spark进行流量日志分析.md","articles":[]},{"title":"工作风格","level":"1.1.6","depth":2,"path":"chapters/工作风格.md","ref":"chapters/工作风格.md","articles":[]},{"title":"大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理","level":"1.1.7","depth":2,"path":"chapters/大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.md","ref":"chapters/大量数据mongo跨库搬运，NODEv8内存又爆了怎么办--支持传参及中途数据处理.md","articles":[]},{"title":"Redis集群化方案","level":"1.1.8","depth":2,"path":"chapters/Redis集群化方案.md","ref":"chapters/Redis集群化方案.md","articles":[]},{"title":"搭建github个人博客----免费、无限流量","level":"1.1.9","depth":2,"path":"chapters/搭建github个人博客----免费、无限流量.md","ref":"chapters/搭建github个人博客----免费、无限流量.md","articles":[]},{"title":"一个最简版的项目","level":"1.1.10","depth":2,"path":"chapters/一个最简版的项目.md","ref":"chapters/一个最简版的项目.md","articles":[]},{"title":"日志系统设计","level":"1.1.11","depth":2,"path":"chapters/日志系统设计.md","ref":"chapters/日志系统设计.md","articles":[]},{"title":"阿里云部署nodejs+mongoDB傻瓜教程","level":"1.1.12","depth":2,"path":"chapters/阿里云部署nodejs+mongoDB傻瓜教程.md","ref":"chapters/阿里云部署nodejs+mongoDB傻瓜教程.md","articles":[]},{"title":"数据库设计","level":"1.1.13","depth":2,"path":"chapters/数据库设计.md","ref":"chapters/数据库设计.md","articles":[]},{"title":"系统设计之控制表--重复数据让我头很大","level":"1.1.14","depth":2,"path":"chapters/系统设计之控制表--重复数据让我头很大.md","ref":"chapters/系统设计之控制表--重复数据让我头很大.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"KatherineLo","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"KatherineLo的文章","gitbook":"*"},"file":{"path":"chapters/如何创建一个VUE前端项目.md","mtime":"2020-12-05T14:09:12.647Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-07T05:15:38.546Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
